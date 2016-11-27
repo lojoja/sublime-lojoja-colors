@@ -1,0 +1,336 @@
+name: lojoja.dark
+author: lojoja
+colorSpaceName: sRGB
+semanticClass: theme.dark.lojoja
+uuid: A7CB61BB-7658-4406-8D26-23FD6670E99B
+
+# Aliases for hex color codes. Lower numbers are darker shades.
+colorDefinition:
+  - &black '#000000'
+  - &background '#2B2D2E'
+  - &gray2 '#3B3E40'
+  - &gray3 '#757B80'
+  - &gray4 '#8B9399'
+  - &gray5 '#BAC4CC'
+  - &gray6 '#D1DCE5'
+  - &foreground '#F2F2F2'
+  - &white '#FFFFFF'
+
+  - &red1 '#802520'
+  - &red2 '#BF3730'
+  - &pink1 '#802033'
+  - &pink2 '#BF304D'
+  - &orange1 '#805420'
+  - &orange2 '#BF7F30'
+  - &yellow1 '#807320'
+  - &yellow2 '#BFAC30'
+  - &green1 '#28691A'
+  - &green2 '#358C23'
+  - &teal1 '#208070'
+  - &teal2 '#30BFA7'
+  - &blue1 '#265A99'
+  - &blue2 '#3377CC'
+  - &purple1 '#573599'
+  - &purple2 '#7447CC'
+
+  - &error '#D02000'
+  - &warn '#DDB700'
+  - &info '#FFFFFF'
+
+# Gutter
+gutterSettings:
+  background: *background
+  foreground: *foreground
+  divider: *gray4
+
+settings:
+  # Base Editor Settings
+  - settings:
+      background: *background
+      foreground: *foreground
+      selection: *gray3
+      # selectionForeground: *gray2
+      caret: *foreground
+      invisibles: *gray4
+      lineHighlight: *gray2
+
+##############################################################################
+
+  #
+  # BASIC COLORS
+  #
+
+  - name: Attribute
+    scope: entity.other.attribute-name, entity.other.attribute-name.id
+    settings:
+      foreground: *purple2
+
+  - name: Comment
+    scope: comment, punctuation.definition.comment, string.docstring, string.docstring punctuation.definition.string, string.quoted.docstring, string.quoted.docstring punctuation.definition.string
+    settings:
+      foreground: *gray4
+      fontStyle: italic
+
+  - name: Class
+    scope: entity.name, entity.name.class, entity.name.type.class
+    settings:
+      foreground: *pink2
+
+  - name: Class (Inherited)
+    scope: entity.other.inherited-class
+    settings:
+      foreground: *pink1
+
+  - name: Constant
+    scope: constant, constant.numeric, constant.other, constant.other.color, constant.other.quote
+    settings:
+      foreground: *red2
+
+  - name: Constant (Character)
+    scope: constant.character, constant.character.escape
+    settings:
+      foreground: *teal2
+
+  - name: Function
+    scope: entity.name.function
+    settings:
+      foreground: *blue2
+
+  - name: Keyword
+    scope: keyword, keyword.control, keyword.operator, keyword.other.special-method, keyword.other.unit
+    settings:
+      foreground: *orange1
+
+  - name: Punctuation
+    scope: punctuation.definition, punctuation.definition.array, punctuation.definition.parameters
+    settings:
+      foreground: *foreground
+
+  - name: Punctuation (Highlight)
+    scope: punctuation.definition.entity, punctuation.definition.variable, punctuation.section.embedded
+    settings:
+      foreground: *orange1
+
+  - name: Section
+    scope: entity.name.section
+    settings:
+      foreground: *purple1
+
+  - name: String
+    scope: string, punctuation.definition.string
+    settings:
+      foreground: *green2
+
+  - name: String (Regular Expression)
+    scope: string.regexp
+    settings:
+      foreground: *teal2
+
+  - name: Tag
+    scope: entity.name.tag
+    settings:
+      foreground: *blue1
+
+  - name: Variable
+    scope: variable, variable.interpolation, variable.parameter
+    settings:
+      foreground: *purple2
+
+##############################################################################
+
+  #
+  # BUILTIN COLORS
+  #
+
+  - name: Builtin Class
+    scope: support.class
+    settings:
+      foreground: *pink1
+
+  - name: Builtin Constant
+    scope: constant.language
+    settings:
+      foreground: *red1
+
+  - name: Builtin Function
+    scope: support.function
+    settings:
+      foreground: *teal1
+
+  - name: Builtin Storage
+    scope: storage
+    settings:
+      foreground: *orange1
+
+  - name: Builtin Type
+    scope: support.type, variable.legacy.builtin
+    settings:
+      foreground: *teal1
+
+  - name: Builtin Variable
+    scope: support.variable, variable.language, variable.parameter.function.language
+    settings:
+      foreground: *purple1
+
+  - name: Builtin Variable (Special)
+    scope: variable.parameter.function.language.special
+    settings:
+      foreground: *red1
+
+##############################################################################
+
+  #
+  # MARKUP COLORS
+  #
+
+  - name: Bold
+    scope: markup.bold, punctuation.definition.bold
+    settings:
+      foreground: *teal2
+      fontStyle: 'bold'
+
+  - name: Header
+    scope: markup.heading, punctuation.definition.heading
+    settings:
+      foreground: *blue2
+
+  - name: Italic
+    scope: markup.italic, punctuation.definition.italic
+    settings:
+      foreground: *teal2
+      fontStyle: 'italic'
+
+  - name: List
+    scope: markup.list, punctuation.definition.list_item.markdown
+    settings:
+      foreground: *orange1
+
+  - name: Raw
+    scope: markup.raw, markup.raw.inline
+    settings:
+      foreground: *purple2
+
+  - name: Underline
+    scope: markup.underline, punctuation.definition.underline
+    settings:
+      foreground: *teal2
+      fontStyle: 'underline'
+
+##############################################################################
+
+  #
+  # VALIDITY COLORS
+  #
+
+  - name: Deprecated
+    scope: invalid.deprecated
+    settings:
+      background: *yellow1
+      foreground: *gray4
+
+  - name: Illegal
+    scope: invalid.illegal
+    settings:
+      background: *red1
+      foreground: *gray4
+
+##############################################################################
+
+  #
+  # STATUS COLORS
+  #
+
+  - name: Changed
+    scope: markup.changed, markup.changed.git_gutter
+    settings:
+      foreground: *pink2
+
+  - name: Deleted
+    scope: markup.deleted, markup.deleted.git_gutter
+    settings:
+      foreground: *red2
+
+  - name: Ignored
+    scope: markup.ignored, markup.ignored.git_gutter
+    settings:
+      foreground: *gray3
+
+  - name: Inserted
+    scope: markup.inserted, markup.inserted.git_gutter
+    settings:
+      foreground: *green2
+
+  - name: Untracked
+    scope: markup.untracked, markup.untracked.git_gutter
+    settings:
+      foreground: *gray3
+
+##############################################################################
+
+  #
+  # PACKAGE-SPECIFIC COLORS
+  #
+  # Some packages do not recognize their custom scopes when part of a list
+  # or regex. To prevent these packages from creating new .tmTheme files these
+  # definitions should contain one scope each.
+  #
+
+  - name: Anaconda Illegal (Outline)
+    scope: anaconda.outline.illegal
+    settings:
+      foreground: *error
+
+  - name: Anaconda Violation (Outline)
+    scope: anaconda.outline.violation
+    settings:
+      foreground: *error
+
+  - name: Anaconda Illegal (Underline)
+    scope: anaconda.underline.illegal
+    settings:
+      foreground: *error
+
+  - name: Anaconda Violation (Underline)
+    scope: anaconda.underline.violation
+    settings:
+      foreground: *error
+
+  - name: Anaconda Warning (Outline)
+    scope: anaconda.outline.warning
+    settings:
+      foreground: *warn
+
+  - name: Anaconda Warning (Underline)
+    scope: anaconda.underline.warning
+    settings:
+      foreground: *warn
+
+  - name: SublimeLinter Error
+    scope: sublimelinter.mark.error
+    settings:
+      foreground: *error
+
+  - name: SublimeLinter Gutter Mark
+    scope: sublimelinter.gutter-mark
+    settings:
+      foreground: *info
+
+  - name: SublimeLinter Warning
+    scope: sublimelinter.mark.warning
+    settings:
+      foreground: *warn
+
+  - name: SublimePythonIDE Error
+    scope: sublimepythonide.mark.error
+    settings:
+      foreground: *error
+
+  - name: SublimePythonIDE Gutter Mark
+    scope: sublimepythonide.gutter-mark
+    settings:
+      foreground: *info
+
+  - name: SublimePythonIDE Warning
+    scope: sublimepythonide.mark.warning
+    settings:
+      foreground: *warn
