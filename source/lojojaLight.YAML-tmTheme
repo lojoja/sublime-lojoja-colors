@@ -61,7 +61,7 @@ settings:
   #
 
   - name: Attribute
-    scope: entity.other.attribute-name, entity.other.attribute-name.id
+    scope: entity.other.attribute-name
     settings:
       foreground: *purple2
 
@@ -72,7 +72,7 @@ settings:
       fontStyle: italic
 
   - name: Class
-    scope: entity.name, entity.name.class, entity.name.type.class
+    scope: entity.name
     settings:
       foreground: *pink2
 
@@ -92,14 +92,19 @@ settings:
       foreground: *teal2
 
   - name: Function
-    scope: entity.name.function
+    scope: entity.name.function, variable.function
     settings:
       foreground: *blue2
 
   - name: Keyword
-    scope: keyword, keyword.control, keyword.operator, keyword.other.special-method, keyword.other.unit
+    scope: keyword, keyword.control, keyword.operator, keyword.other
     settings:
       foreground: *orange1
+
+  - name: Label
+    scope: entity.name.label
+    settings:
+      foreground: *purple1
 
   - name: Punctuation
     scope: punctuation.definition, punctuation.definition.array, punctuation.definition.parameters
@@ -163,17 +168,17 @@ settings:
       foreground: *orange1
 
   - name: Builtin Type
-    scope: support.type, variable.legacy.builtin
+    scope: storage.type, support.type
     settings:
       foreground: *teal1
 
   - name: Builtin Variable
-    scope: support.variable, variable.language, variable.parameter.function.language
+    scope: support.variable, variable.language, variable.legacy.builtin, variable.parameter.function.language, variable.parameter.language
     settings:
       foreground: *purple1
 
   - name: Builtin Variable (Special)
-    scope: variable.parameter.function.language.special
+    scope: variable.parameter.function.language.special, variable.parameter.language.special
     settings:
       foreground: *red1
 

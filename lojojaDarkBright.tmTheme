@@ -42,7 +42,7 @@
 			<key>name</key>
 			<string>Attribute</string>
 			<key>scope</key>
-			<string>entity.other.attribute-name, entity.other.attribute-name.id</string>
+			<string>entity.other.attribute-name</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -66,7 +66,7 @@
 			<key>name</key>
 			<string>Class</string>
 			<key>scope</key>
-			<string>entity.name, entity.name.class, entity.name.type.class</string>
+			<string>entity.name</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -110,7 +110,7 @@
 			<key>name</key>
 			<string>Function</string>
 			<key>scope</key>
-			<string>entity.name.function</string>
+			<string>entity.name.function, variable.function</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -121,11 +121,22 @@
 			<key>name</key>
 			<string>Keyword</string>
 			<key>scope</key>
-			<string>keyword, keyword.control, keyword.operator, keyword.other.special-method, keyword.other.unit</string>
+			<string>keyword, keyword.control, keyword.operator, keyword.other</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
 				<string>#BF771F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Label</string>
+			<key>scope</key>
+			<string>entity.name.label</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6C43BF</string>
 			</dict>
 		</dict>
 		<dict>
@@ -253,7 +264,7 @@
 			<key>name</key>
 			<string>Builtin Type</string>
 			<key>scope</key>
-			<string>support.type, variable.legacy.builtin</string>
+			<string>storage.type, support.type</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -264,7 +275,7 @@
 			<key>name</key>
 			<string>Builtin Variable</string>
 			<key>scope</key>
-			<string>support.variable, variable.language, variable.parameter.function.language</string>
+			<string>support.variable, variable.language, variable.legacy.builtin, variable.parameter.function.language, variable.parameter.language</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -275,7 +286,7 @@
 			<key>name</key>
 			<string>Builtin Variable (Special)</string>
 			<key>scope</key>
-			<string>variable.parameter.function.language.special</string>
+			<string>variable.parameter.function.language.special, variable.parameter.language.special</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
