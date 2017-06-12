@@ -242,7 +242,7 @@
 			<key>name</key>
 			<string>Builtin Function</string>
 			<key>scope</key>
-			<string>support.function</string>
+			<string>support.function, support.function.magic, support.variable.function, variable.function.language</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -264,7 +264,7 @@
 			<key>name</key>
 			<string>Builtin Type</string>
 			<key>scope</key>
-			<string>storage.type, support.type</string>
+			<string>support.type</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -286,7 +286,7 @@
 			<key>name</key>
 			<string>Builtin Variable (Special)</string>
 			<key>scope</key>
-			<string>variable.parameter.function.language.special, variable.parameter.language.special</string>
+			<string>support.variable.special, variable.language.special, variable.legacy.builtin.special, variable.parameter.function.language.special, variable.parameter.language.special</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>

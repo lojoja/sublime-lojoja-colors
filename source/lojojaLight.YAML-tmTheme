@@ -158,7 +158,7 @@ settings:
       foreground: *red1
 
   - name: Builtin Function
-    scope: support.function
+    scope: support.function, support.function.magic, support.variable.function, variable.function.language
     settings:
       foreground: *teal1
 
@@ -168,7 +168,7 @@ settings:
       foreground: *orange1
 
   - name: Builtin Type
-    scope: storage.type, support.type
+    scope: support.type
     settings:
       foreground: *teal1
 
@@ -178,7 +178,7 @@ settings:
       foreground: *purple1
 
   - name: Builtin Variable (Special)
-    scope: variable.parameter.function.language.special, variable.parameter.language.special
+    scope: support.variable.special, variable.language.special, variable.legacy.builtin.special, variable.parameter.function.language.special, variable.parameter.language.special
     settings:
       foreground: *red1
 
