@@ -231,7 +231,7 @@
 			<key>name</key>
 			<string>Builtin Constant</string>
 			<key>scope</key>
-			<string>constant.language</string>
+			<string>constant.language, support.constant</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
