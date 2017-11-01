@@ -11,6 +11,7 @@ colorDefinition:
   - &gray2 '#3B3E40'
   - &gray3 '#757B80'
   - &gray4 '#8B9399'
+  - &gray4_transparent '#8B939950' # For Sublime Text 314x+ so whitespace within a scope is less jarring
   - &gray5 '#BAC4CC'
   - &gray6 '#D1DCE5'
   - &foreground '#F2F2F2'
@@ -51,7 +52,7 @@ settings:
       selection: *gray3
       # selectionForeground: *gray2
       caret: *foreground
-      invisibles: *gray4
+      invisibles: *gray4_transparent
       lineHighlight: *gray2
 
 ##############################################################################
