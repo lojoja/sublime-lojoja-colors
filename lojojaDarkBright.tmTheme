@@ -31,7 +31,7 @@
 				<key>foreground</key>
 				<string>#F2F2F2</string>
 				<key>invisibles</key>
-				<string>#8B9399</string>
+				<string>#8B939950</string>
 				<key>lineHighlight</key>
 				<string>#3B3E40</string>
 				<key>selection</key>
@@ -389,6 +389,83 @@
 				<string>#BF3730</string>
 				<key>foreground</key>
 				<string>#8B9399</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Region (Red)</string>
+			<key>scope</key>
+			<string>region.redish</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#BF3730</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Region (Orange)</string>
+			<key>scope</key>
+			<string>region.orangish</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#BF771F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Region (Yellow)</string>
+			<key>scope</key>
+			<string>region.yellowish</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#BFAF49</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Region (Green)</string>
+			<key>scope</key>
+			<string>region.greenish</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#308020</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Region (Blue)</string>
+			<key>scope</key>
+			<string>region.bluish</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#3070bf</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Region (Purple)</string>
+			<key>scope</key>
+			<string>region.purplish</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6C43BF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Region (Pink)</string>
+			<key>scope</key>
+			<string>region.pinkish</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#BF3954</string>
 			</dict>
 		</dict>
 		<dict>

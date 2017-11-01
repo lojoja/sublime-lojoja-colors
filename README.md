@@ -1,7 +1,7 @@
 lojoja Colors
 =============
 
-*Version 1.0.3*
+*Version 1.0.4*
 
 A collection of color schemes for [Sublime Text](https://www.sublimetext.com) with extended scope,
 language and package support. Schemes are based on two similar palettes and include light and dark variations.
