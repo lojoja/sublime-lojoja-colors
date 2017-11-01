@@ -243,6 +243,47 @@ settings:
 ##############################################################################
 
   #
+  # REGION COLORS
+  #
+
+  - name: Region (Red)
+    scope: region.redish
+    settings:
+      foreground: *red1
+
+  - name: Region (Orange)
+    scope: region.orangish
+    settings:
+      foreground: *orange1
+
+  - name: Region (Yellow)
+    scope: region.yellowish
+    settings:
+      foreground: *yellow1
+
+  - name: Region (Green)
+    scope: region.greenish
+    settings:
+      foreground: *green1
+
+  - name: Region (Blue)
+    scope: region.bluish
+    settings:
+      foreground: *blue1
+
+  - name: Region (Purple)
+    scope: region.purplish
+    settings:
+      foreground: *purple1
+
+  - name: Region (Pink)
+    scope: region.pinkish
+    settings:
+      foreground: *pink1
+
+##############################################################################
+
+  #
   # STATUS COLORS
   #
 
