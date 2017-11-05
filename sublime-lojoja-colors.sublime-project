@@ -4,5 +4,18 @@
     {
       "path": "."
     }
+  ],
+  "settings":
+  {
+    "auto_python_builder_enabled": false,
+  },
+  "build_systems":
+  [
+    {
+      "name": "Sublime Lojoja Colors Build",
+      "cmd": ["./build.py"],
+      "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+      "selector": "source.python"
+    }
   ]
 }
