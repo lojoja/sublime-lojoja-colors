@@ -1,0 +1,340 @@
+{
+    "name": "lojojaDarkBright",
+    "author": "lojoja",
+    "color_space_name": "sRGB",
+    "semantic_class": "theme.dark.lojoja.bright",
+    "uuid": "2C77B73C-2BAD-4827-8C3B-E8ACA1A06D37",
+    "variables": {
+        "background": "var(gray_darkest)",
+        "foreground": "var(gray_lightest)",
+        "selection": "var(gray_med_dark)",
+        "line_highlight": "var(gray_dark)",
+        "error": "#D02000",
+        "warn": "#DDB700",
+        "info": "#FFFFFF",
+        "black": "#000000",
+        "gray_darkest": "#2B2D2E",
+        "gray_dark": "#3B3E40",
+        "gray_med_dark": "#757B80",
+        "gray_med": "#8B9399",
+        "gray_med_dimmed": "#8B939950",
+        "gray_med_light": "#BAC4CC",
+        "gray_light": "#D1DCE5",
+        "gray_lightest": "#F2F2F2",
+        "white": "#FFFFFF",
+        "red_normal": "#BF3730",
+        "red_bright": "#FF4940",
+        "pink_normal": "#BF3954",
+        "pink_bright": "#FF4C70",
+        "orange_normal": "#BF771F",
+        "orange_bright": "#FF9F28",
+        "yellow_normal": "#BFAF49",
+        "yellow_bright": "#FFEB62",
+        "green_normal": "#308020",
+        "green_bright": "#48BF30",
+        "teal_normal": "#4CBFAC",
+        "teal_bright": "#66FFE5",
+        "blue_normal": "#3070bf",
+        "blue_bright": "#4196FF",
+        "purple_normal": "#6C43BF",
+        "purple_bright": "#9159FF",
+        "comment": "var(gray_med)",
+        "status_ignored": "var(gray_med_dark)"
+    },
+    "defaults": {
+        "background": "var(background)",
+        "foreground": "var(foreground)",
+        "selection": "var(selection)",
+        "caret": "var(foreground)",
+        "invisibles": "var(gray_med_dimmed)",
+        "line_highlight": "var(line_highlight)"
+    },
+    "gutter_settings": {
+        "background": "",
+        "foreground": "",
+        "divider": "var(gray_med)"
+    },
+    "rules": [
+        {
+            "name": "[BASIC] Attribute",
+            "scope": "entity.other.attribute-name",
+            "foreground": "var(purple_bright)"
+        },
+        {
+            "name": "[BASIC] Comment",
+            "scope": "comment, punctuation.definition.comment, string.docstring, string.docstring punctuation.definition.string, string.quoted.docstring, string.quoted.docstring punctuation.definition.string",
+            "foreground": "var(comment)",
+            "font_style": "italic"
+        },
+        {
+            "name": "[BASIC] Class",
+            "scope": "entity.name",
+            "foreground": "var(pink_bright)"
+        },
+        {
+            "name": "[BASIC] Class (Inherited)",
+            "scope": "entity.other.inherited-class",
+            "foreground": "var(pink_normal)"
+        },
+        {
+            "name": "[BASIC] Constant",
+            "scope": "constant, constant.numeric, constant.other, constant.other.color, constant.other.quote",
+            "foreground": "var(red_bright)"
+        },
+        {
+            "name": "[BASIC] Constant (Character)",
+            "scope": "constant.character, constant.character.escape",
+            "foreground": "var(teal_bright)"
+        },
+        {
+            "name": "[BASIC] Function",
+            "scope": "entity.name.function, variable.function",
+            "foreground": "var(blue_bright)"
+        },
+        {
+            "name": "[BASIC] Keyword",
+            "scope": "keyword, keyword.control, keyword.operator, keyword.other",
+            "foreground": "var(orange_normal)"
+        },
+        {
+            "name": "[BASIC] Label",
+            "scope": "entity.name.label",
+            "foreground": "var(purple_normal)"
+        },
+        {
+            "name": "[BASIC] Punctuation",
+            "scope": "punctuation.definition, punctuation.definition.array, punctuation.definition.parameters",
+            "foreground": "var(foreground)"
+        },
+        {
+            "name": "[BASIC] Punctuation (Highlight)",
+            "scope": "punctuation.definition.entity, punctuation.definition.variable, punctuation.section.embedded",
+            "foreground": "var(orange_normal)"
+        },
+        {
+            "name": "[BASIC] Section",
+            "scope": "entity.name.section",
+            "foreground": "var(purple_normal)"
+        },
+        {
+            "name": "[BASIC] String",
+            "scope": "string, punctuation.definition.string",
+            "foreground": "var(green_bright)"
+        },
+        {
+            "name": "[BASIC] String (Regular Expression)",
+            "scope": "string.regexp",
+            "foreground": "var(teal_bright)"
+        },
+        {
+            "name": "[BASIC] Tag",
+            "scope": "entity.name.tag",
+            "foreground": "var(blue_normal)"
+        },
+        {
+            "name": "[BASIC] Variable",
+            "scope": "variable, variable.interpolation, variable.parameter",
+            "foreground": "var(purple_bright)"
+        },
+        {
+            "name": "[BUILTIN] Class",
+            "scope": "support.class",
+            "foreground": "var(pink_normal)"
+        },
+        {
+            "name": "[BUILTIN] Constant",
+            "scope": "constant.language, support.constant",
+            "foreground": "var(red_normal)"
+        },
+        {
+            "name": "[BUILTIN] Function",
+            "scope": "support.function, support.function.magic, support.variable.function, variable.function.language",
+            "foreground": "var(teal_normal)"
+        },
+        {
+            "name": "[BUILTIN] Storage",
+            "scope": "storage",
+            "foreground": "var(orange_normal)"
+        },
+        {
+            "name": "[BUILTIN] Type",
+            "scope": "support.type",
+            "foreground": "var(teal_normal)"
+        },
+        {
+            "name": "[BUILTIN] Variable",
+            "scope": "support.variable, variable.language, variable.legacy.builtin, variable.parameter.function.language, variable.parameter.language",
+            "foreground": "var(purple_normal)"
+        },
+        {
+            "name": "[BUILTIN] Variable (Special)",
+            "scope": "support.variable.special, variable.language.special, variable.legacy.builtin.special, variable.parameter.function.language.special, variable.parameter.language.special",
+            "foreground": "var(red_normal)"
+        },
+        {
+            "name": "[MARKUP] Bold",
+            "scope": "markup.bold, punctuation.definition.bold",
+            "foreground": "var(teal_bright)",
+            "font_style": "bold"
+        },
+        {
+            "name": "[MARKUP] Header",
+            "scope": "markup.heading, punctuation.definition.heading",
+            "foreground": "var(blue_bright)"
+        },
+        {
+            "name": "[MARKUP] Italic",
+            "scope": "markup.italic, punctuation.definition.italic",
+            "foreground": "var(teal_bright)",
+            "font_style": "italic"
+        },
+        {
+            "name": "[MARKUP] List",
+            "scope": "markup.list, punctuation.definition.list_item.markdown",
+            "foreground": "var(orange_normal)"
+        },
+        {
+            "name": "[MARKUP] Raw",
+            "scope": "markup.raw, markup.raw.inline",
+            "foreground": "var(purple_bright)"
+        },
+        {
+            "name": "[MARKUP] Underline",
+            "scope": "markup.underline, punctuation.definition.underline",
+            "foreground": "var(teal_bright)",
+            "font_style": "underline"
+        },
+        {
+            "name": "[VALIDITY] Deprecated",
+            "scope": "invalid.deprecated",
+            "background": "var(yellow_normal)",
+            "foreground": "var(gray_med)"
+        },
+        {
+            "name": "[VALIDITY] Illegal",
+            "scope": "invalid.illegal",
+            "background": "var(red_normal)",
+            "foreground": "var(gray_med)"
+        },
+        {
+            "name": "[REGION] Red",
+            "scope": "region.redish",
+            "foreground": "var(red_normal)"
+        },
+        {
+            "name": "[REGION] Orange",
+            "scope": "region.orangish",
+            "foreground": "var(orange_normal)"
+        },
+        {
+            "name": "[REGION] Yellow",
+            "scope": "region.yellowish",
+            "foreground": "var(yellow_normal)"
+        },
+        {
+            "name": "[REGION] Green",
+            "scope": "region.greenish",
+            "foreground": "var(green_normal)"
+        },
+        {
+            "name": "[REGION] Blue",
+            "scope": "region.bluish",
+            "foreground": "var(blue_normal)"
+        },
+        {
+            "name": "[REGION] Purple",
+            "scope": "region.purplish",
+            "foreground": "var(purple_normal)"
+        },
+        {
+            "name": "[REGION] Pink",
+            "scope": "region.pinkish",
+            "foreground": "var(pink_normal)"
+        },
+        {
+            "name": "[STATUS] Changed",
+            "scope": "markup.changed, markup.changed.git_gutter",
+            "foreground": "var(pink_bright)"
+        },
+        {
+            "name": "[STATUS] Deleted",
+            "scope": "markup.deleted, markup.deleted.git_gutter",
+            "foreground": "var(red_bright)"
+        },
+        {
+            "name": "[STATUS] Ignored",
+            "scope": "markup.ignored, markup.ignored.git_gutter",
+            "foreground": "var(status_ignored)"
+        },
+        {
+            "name": "[STATUS] Inserted",
+            "scope": "markup.inserted, markup.inserted.git_gutter",
+            "foreground": "var(green_bright)"
+        },
+        {
+            "name": "[STATUS] Untracked",
+            "scope": "markup.untracked, markup.untracked.git_gutter",
+            "foreground": "var(gray_med_dark)"
+        },
+        {
+            "name": "[ANACONDA] Illegal (Outline)",
+            "scope": "anaconda.outline.illegal",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[ANACONDA] Violation (Outline)",
+            "scope": "anaconda.outline.violation",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[ANACONDA] Illegal (Underline)",
+            "scope": "anaconda.underline.illegal",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[ANACONDA] Violation (Underline)",
+            "scope": "anaconda.underline.violation",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[ANACONDA] Warning (Outline)",
+            "scope": "anaconda.outline.warning",
+            "foreground": "var(warn)"
+        },
+        {
+            "name": "[ANACONDA] Warning (Underline)",
+            "scope": "anaconda.underline.warning",
+            "foreground": "var(warn)"
+        },
+        {
+            "name": "[SUBLIME LINTER] Error",
+            "scope": "sublimelinter.mark.error",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[SUBLIME LINTER] Gutter Mark",
+            "scope": "sublimelinter.gutter-mark",
+            "foreground": "var(info)"
+        },
+        {
+            "name": "[SUBLIME LINTER] Warning",
+            "scope": "sublimelinter.mark.warning",
+            "foreground": "var(warn)"
+        },
+        {
+            "name": "[SUBLIME PYTHON IDE] Error",
+            "scope": "sublimepythonide.mark.error",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[SUBLIME PYTHON IDE] Gutter Mark",
+            "scope": "sublimepythonide.gutter-mark",
+            "foreground": "var(info)"
+        },
+        {
+            "name": "[SUBLIME PYTHON IDE] Warning",
+            "scope": "sublimepythonide.mark.warning",
+            "foreground": "var(warn)"
+        }
+    ]
+}
