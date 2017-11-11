@@ -1,64 +1,63 @@
 {
     "name": "lojojaLightBright",
     "author": "lojoja",
-    "color_space_name": "sRGB",
-    "semantic_class": "theme.light.lojoja.bright",
-    "uuid": "9055E429-141C-46FD-BE76-08334BFFCAC3",
     "variables": {
-        "background": "var(gray_lightest)",
-        "foreground": "var(gray_darkest)",
-        "selection": "var(gray_med_light)",
-        "line_highlight": "var(gray_light)",
-        "error": "#D02000",
-        "warn": "#DDB700",
-        "info": "#FFFFFF",
-        "black": "#000000",
-        "gray_darkest": "#2B2D2E",
-        "gray_dark": "#3B3E40",
-        "gray_med_dark": "#757B80",
-        "gray_med": "#8B9399",
-        "gray_med_dimmed": "#8B939950",
-        "gray_med_light": "#BAC4CC",
-        "gray_light": "#D1DCE5",
-        "gray_lightest": "#F2F2F2",
-        "white": "#FFFFFF",
-        "red_normal": "#BF3730",
-        "red_bright": "#FF4940",
-        "pink_normal": "#BF3954",
-        "pink_bright": "#FF4C70",
-        "orange_normal": "#BF771F",
-        "orange_bright": "#FF9F28",
-        "yellow_normal": "#BFAF49",
-        "yellow_bright": "#FFEB62",
-        "green_normal": "#308020",
-        "green_bright": "#48BF30",
-        "teal_normal": "#4CBFAC",
-        "teal_bright": "#66FFE5",
-        "blue_normal": "#3070bf",
-        "blue_bright": "#4196FF",
-        "purple_normal": "#6C43BF",
-        "purple_bright": "#9159FF",
-        "comment": "var(gray_med_dark)",
-        "status_ignored": "var(gray_med_light)"
+        "black": "hsl(0, 0%, 0%)",
+        "gray": "hsl(200, 3%, 17%)",
+        "gray2": "hsl(204, 4%, 24%)",
+        "gray3": "hsl(207, 4%, 48%)",
+        "gray4": "hsl(207, 6%, 57%)",
+        "gray5": "hsl(207, 15%, 76%)",
+        "gray6": "hsl(207, 28%, 86%)",
+        "gray7": "hsl(0, 0%, 95%)",
+        "white": "hsl(0, 100%, 100%)",
+        "error": "var(red)",
+        "warn": "var(yellow)",
+        "foreground": "var(gray)",
+        "background": "var(gray7)",
+        "comment": "var(gray3)",
+        "ignored": "var(gray5)",
+        "red": "hsl(3, 70%, 40%)",
+        "red2": "hsl(3, 70%, 50%)",
+        "pink": "hsl(348, 70%, 40%)",
+        "pink2": "hsl(348, 70%, 50%)",
+        "orange": "hsl(33, 70%, 40%)",
+        "orange2": "hsl(33, 70%, 50%)",
+        "yellow": "hsl(55, 70%, 40%)",
+        "yellow2": "hsl(55, 70%, 50%)",
+        "green": "hsl(110, 70%, 40%)",
+        "green2": "hsl(110, 70%, 50%)",
+        "teal": "hsl(160, 70%, 40%)",
+        "teal2": "hsl(160, 70%, 50%)",
+        "blue": "hsl(213, 70%, 40%)",
+        "blue2": "hsl(213, 70%, 50%)",
+        "purple": "hsl(282, 70%, 40%)",
+        "purple2": "hsl(282, 70%, 50%)"
     },
-    "defaults": {
+    "globals": {
         "background": "var(background)",
         "foreground": "var(foreground)",
-        "selection": "var(selection)",
         "caret": "var(foreground)",
-        "invisibles": "var(gray_med_dimmed)",
-        "line_highlight": "var(line_highlight)"
-    },
-    "gutter_settings": {
-        "background": "",
-        "foreground": "",
-        "divider": "var(gray_med)"
+        "invisibles": "color(var(gray4) alpha(0.50))",
+        "misspelling": "var(red)",
+        "active_guide": "var(blue)",
+        "stack_guide": "color(var(gray3) alpha(0.35))",
+        "highlight": "var(yellow)",
+        "find_highlight_foreground": "var(foreground)",
+        "find_highlight": "var(orange)",
+        "gutter_divider": "var(gray4)",
+        "gutter_foreground": "var(foreground)",
+        "gutter": "var(background)",
+        "line_highlight": "var(gray6)",
+        "selection": "var(gray5)",
+        "selection_border": "var(gray4)",
+        "inactive_selection": "var(gray6)"
     },
     "rules": [
         {
             "name": "[BASIC] Attribute",
             "scope": "entity.other.attribute-name",
-            "foreground": "var(purple_bright)"
+            "foreground": "var(purple2)"
         },
         {
             "name": "[BASIC] Comment",
@@ -69,37 +68,37 @@
         {
             "name": "[BASIC] Class",
             "scope": "entity.name",
-            "foreground": "var(pink_bright)"
+            "foreground": "var(pink2)"
         },
         {
             "name": "[BASIC] Class (Inherited)",
             "scope": "entity.other.inherited-class",
-            "foreground": "var(pink_normal)"
+            "foreground": "var(pink)"
         },
         {
             "name": "[BASIC] Constant",
             "scope": "constant, constant.numeric, constant.other, constant.other.color, constant.other.quote",
-            "foreground": "var(red_bright)"
+            "foreground": "var(red2)"
         },
         {
             "name": "[BASIC] Constant (Character)",
             "scope": "constant.character, constant.character.escape",
-            "foreground": "var(teal_bright)"
+            "foreground": "var(teal2)"
         },
         {
             "name": "[BASIC] Function",
             "scope": "entity.name.function, variable.function",
-            "foreground": "var(blue_bright)"
+            "foreground": "var(blue2)"
         },
         {
             "name": "[BASIC] Keyword",
             "scope": "keyword, keyword.control, keyword.operator, keyword.other",
-            "foreground": "var(orange_normal)"
+            "foreground": "var(orange)"
         },
         {
             "name": "[BASIC] Label",
             "scope": "entity.name.label",
-            "foreground": "var(purple_normal)"
+            "foreground": "var(purple)"
         },
         {
             "name": "[BASIC] Punctuation",
@@ -109,172 +108,172 @@
         {
             "name": "[BASIC] Punctuation (Highlight)",
             "scope": "punctuation.definition.entity, punctuation.definition.variable, punctuation.section.embedded",
-            "foreground": "var(orange_normal)"
+            "foreground": "var(orange)"
         },
         {
             "name": "[BASIC] Section",
             "scope": "entity.name.section",
-            "foreground": "var(purple_normal)"
+            "foreground": "var(purple)"
         },
         {
             "name": "[BASIC] String",
             "scope": "string, punctuation.definition.string",
-            "foreground": "var(green_bright)"
+            "foreground": "var(green2)"
         },
         {
             "name": "[BASIC] String (Regular Expression)",
             "scope": "string.regexp",
-            "foreground": "var(teal_bright)"
+            "foreground": "var(teal2)"
         },
         {
             "name": "[BASIC] Tag",
             "scope": "entity.name.tag",
-            "foreground": "var(blue_normal)"
+            "foreground": "var(blue)"
         },
         {
             "name": "[BASIC] Variable",
             "scope": "variable, variable.interpolation, variable.parameter",
-            "foreground": "var(purple_bright)"
+            "foreground": "var(purple2)"
         },
         {
             "name": "[BUILTIN] Class",
             "scope": "support.class",
-            "foreground": "var(pink_normal)"
+            "foreground": "var(pink)"
         },
         {
             "name": "[BUILTIN] Constant",
             "scope": "constant.language, support.constant",
-            "foreground": "var(red_normal)"
+            "foreground": "var(red)"
         },
         {
             "name": "[BUILTIN] Function",
             "scope": "support.function, support.function.magic, support.variable.function, variable.function.language",
-            "foreground": "var(teal_normal)"
+            "foreground": "var(teal)"
         },
         {
             "name": "[BUILTIN] Storage",
             "scope": "storage",
-            "foreground": "var(orange_normal)"
+            "foreground": "var(orange)"
         },
         {
             "name": "[BUILTIN] Type",
             "scope": "support.type",
-            "foreground": "var(teal_normal)"
+            "foreground": "var(teal)"
         },
         {
             "name": "[BUILTIN] Variable",
             "scope": "support.variable, variable.language, variable.legacy.builtin, variable.parameter.function.language, variable.parameter.language",
-            "foreground": "var(purple_normal)"
+            "foreground": "var(purple)"
         },
         {
             "name": "[BUILTIN] Variable (Special)",
             "scope": "support.variable.special, variable.language.special, variable.legacy.builtin.special, variable.parameter.function.language.special, variable.parameter.language.special",
-            "foreground": "var(red_normal)"
+            "foreground": "var(red)"
         },
         {
             "name": "[MARKUP] Bold",
             "scope": "markup.bold, punctuation.definition.bold",
-            "foreground": "var(teal_bright)",
+            "foreground": "var(teal2)",
             "font_style": "bold"
         },
         {
             "name": "[MARKUP] Header",
             "scope": "markup.heading, punctuation.definition.heading",
-            "foreground": "var(blue_bright)"
+            "foreground": "var(blue2)"
         },
         {
             "name": "[MARKUP] Italic",
             "scope": "markup.italic, punctuation.definition.italic",
-            "foreground": "var(teal_bright)",
+            "foreground": "var(teal2)",
             "font_style": "italic"
         },
         {
             "name": "[MARKUP] List",
             "scope": "markup.list, punctuation.definition.list_item.markdown",
-            "foreground": "var(orange_normal)"
+            "foreground": "var(orange)"
         },
         {
             "name": "[MARKUP] Raw",
             "scope": "markup.raw, markup.raw.inline",
-            "foreground": "var(purple_bright)"
+            "foreground": "var(purple2)"
         },
         {
             "name": "[MARKUP] Underline",
             "scope": "markup.underline, punctuation.definition.underline",
-            "foreground": "var(teal_bright)",
+            "foreground": "var(teal2)",
             "font_style": "underline"
         },
         {
             "name": "[VALIDITY] Deprecated",
             "scope": "invalid.deprecated",
-            "background": "var(yellow_normal)",
-            "foreground": "var(gray_med)"
+            "background": "var(yellow)",
+            "foreground": "var(gray4)"
         },
         {
             "name": "[VALIDITY] Illegal",
             "scope": "invalid.illegal",
-            "background": "var(red_normal)",
-            "foreground": "var(gray_med)"
+            "background": "var(red)",
+            "foreground": "var(gray4)"
         },
         {
             "name": "[REGION] Red",
             "scope": "region.redish",
-            "foreground": "var(red_normal)"
+            "foreground": "var(red)"
         },
         {
             "name": "[REGION] Orange",
             "scope": "region.orangish",
-            "foreground": "var(orange_normal)"
+            "foreground": "var(orange)"
         },
         {
             "name": "[REGION] Yellow",
             "scope": "region.yellowish",
-            "foreground": "var(yellow_normal)"
+            "foreground": "var(yellow)"
         },
         {
             "name": "[REGION] Green",
             "scope": "region.greenish",
-            "foreground": "var(green_normal)"
+            "foreground": "var(green)"
         },
         {
             "name": "[REGION] Blue",
             "scope": "region.bluish",
-            "foreground": "var(blue_normal)"
+            "foreground": "var(blue)"
         },
         {
             "name": "[REGION] Purple",
             "scope": "region.purplish",
-            "foreground": "var(purple_normal)"
+            "foreground": "var(purple)"
         },
         {
             "name": "[REGION] Pink",
             "scope": "region.pinkish",
-            "foreground": "var(pink_normal)"
+            "foreground": "var(pink)"
         },
         {
             "name": "[STATUS] Changed",
             "scope": "markup.changed, markup.changed.git_gutter",
-            "foreground": "var(pink_bright)"
+            "foreground": "var(pink2)"
         },
         {
             "name": "[STATUS] Deleted",
             "scope": "markup.deleted, markup.deleted.git_gutter",
-            "foreground": "var(red_bright)"
+            "foreground": "var(red2)"
         },
         {
             "name": "[STATUS] Ignored",
             "scope": "markup.ignored, markup.ignored.git_gutter",
-            "foreground": "var(status_ignored)"
+            "foreground": "var(ignored)"
         },
         {
             "name": "[STATUS] Inserted",
             "scope": "markup.inserted, markup.inserted.git_gutter",
-            "foreground": "var(green_bright)"
+            "foreground": "var(green2)"
         },
         {
             "name": "[STATUS] Untracked",
             "scope": "markup.untracked, markup.untracked.git_gutter",
-            "foreground": "var(gray_med_dark)"
+            "foreground": "var(gray3)"
         },
         {
             "name": "[ANACONDA] Illegal (Outline)",
@@ -314,7 +313,7 @@
         {
             "name": "[SUBLIME LINTER] Gutter Mark",
             "scope": "sublimelinter.gutter-mark",
-            "foreground": "var(info)"
+            "foreground": "var(foreground)"
         },
         {
             "name": "[SUBLIME LINTER] Warning",
@@ -329,7 +328,7 @@
         {
             "name": "[SUBLIME PYTHON IDE] Gutter Mark",
             "scope": "sublimepythonide.gutter-mark",
-            "foreground": "var(info)"
+            "foreground": "var(foreground)"
         },
         {
             "name": "[SUBLIME PYTHON IDE] Warning",
