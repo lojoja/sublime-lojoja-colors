@@ -1,52 +1,22 @@
 {
-  "schemes": [
-    {
-      "info": {
-        "name": "lojojaDark",
-        "uuid": "A7CB61BB-7658-4406-8D26-23FD6670E99B",
-        "color_space_name": "sRGB",
-        "semantic_class": "theme.dark.lojoja"
-      },
-      "color": {
+    "lojojaDark": {
+        "author": "lojoja",
         "shade": "dark",
-        "palette": "standard"
-      }
+        "palette": "normal"
     },
-    {
-      "info": {
-        "name": "lojojaDarkBright",
-        "uuid": "2C77B73C-2BAD-4827-8C3B-E8ACA1A06D37",
-        "color_space_name": "sRGB",
-        "semantic_class": "theme.dark.lojoja.bright"
-      },
-      "color": {
+    "lojojaDarkBright": {
+        "author": "lojoja",
         "shade": "dark",
         "palette": "bright"
-      }
     },
-    {
-      "info": {
-        "name": "lojojaLight",
-        "uuid": "4916A696-4AE9-4C9A-B7AC-61539B213EC2",
-        "color_space_name": "sRGB",
-        "semantic_class": "theme.light.lojoja"
-      },
-      "color": {
+    "lojojaLight": {
+        "author": "lojoja",
         "shade": "light",
-        "palette": "standard"
-      }
+        "palette": "normal"
     },
-    {
-      "info": {
-        "name": "lojojaLightBright",
-        "uuid": "9055E429-141C-46FD-BE76-08334BFFCAC3",
-        "color_space_name": "sRGB",
-        "semantic_class": "theme.light.lojoja.bright"
-      },
-      "color": {
+    "lojojaLightBright": {
+        "author": "lojoja",
         "shade": "light",
         "palette": "bright"
-      }
     }
-  ]
 }

@@ -18,7 +18,7 @@ def load_data(file):
     Load json data.
 
     Comments are allowed in source data.
-    They must start with "//" and be the only content on the line.
+    Comments must start with "//" and be the only content on the line.
     """
     pattern = re.compile(r'^\s*//.*$', re.M)
     data = None
@@ -43,27 +43,34 @@ def save_data(data, filename):
 
 
 def main():
-    schemes = load_data(SCHEMES_FILE)['schemes']
+    schemes = load_data(SCHEMES_FILE)
     colors = load_data(COLORS_FILE)
     template = load_data(TEMPLATE_FILE)
 
-    for scheme in schemes:
+    for name, data in schemes.items():
+        shade = colors['shade'][data['shade']]
+        palette = colors['palette'][data['palette']]
+
+        # Create a new color scheme
         color_scheme = copy.deepcopy(template)
 
-        # Set info
-        color_scheme.update(scheme['info'])
+        # Set basic information
+        color_scheme.update({
+            'name': name,
+            'author': data['author']
+        })
 
-        # Set colors
-        color_scheme['variables'].update(colors['base'])
-        color_scheme['variables'].update(colors[scheme['color']['palette']])
-        color_scheme['variables'].update(colors[scheme['color']['shade']])
+        # Set variables
+        variables = colors['base']
+        variables.update(shade['variables'])
+        variables.update(palette)
+        color_scheme['variables'].update(variables)
 
-        # Set conditional shade color variables
-        #for k, v in colors[scheme['color']['shade']]:
-        #    color_scheme['variables'][k] = 'var({0})'.format(v)
+        # Set global styles
+        color_scheme['globals'].update(shade['globals'])
 
         # Save scheme
-        filename = '{0}.sublime-color-scheme'.format(scheme['info']['name'])
+        filename = '{0}.sublime-color-scheme'.format(name)
         save_data(color_scheme, filename)
 
 if __name__ == '__main__':

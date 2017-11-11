@@ -1,378 +1,339 @@
 {
-  "name": "",
-  "author": "lojoja",
-  "color_space_name": "",
-  "semantic_class": "",
-  "uuid": "",
+    "name": "",
+    "author": "",
+    "variables": {
+    },
+    "globals": {
+        "background": "var(background)",
+        "foreground": "var(foreground)",
+        "caret": "var(foreground)",
+        "invisibles": "color(var(gray4) alpha(0.50))",
+        "misspelling": "var(red)",
+        "active_guide": "var(blue)",
+        "stack_guide": "color(var(gray3) alpha(0.35))",
+        "highlight": "var(yellow)",
+        "find_highlight_foreground": "var(foreground)",
+        "find_highlight": "var(orange)",
+        "gutter_divider": "var(gray4)",
+        "gutter_foreground": "var(foreground)",
+        "gutter": "var(background)"
+    },
+    "rules": [
 
-  "variables": {
-    "background": "",
-    "foreground": "",
-    "selection": "",
-    "line_highlight": "",
-    "error": "",
-    "warn": "",
-    "info": "",
-    "black": "",
-    "gray_darkest": "",
-    "gray_dark": "",
-    "gray_med_dark": "",
-    "gray_med": "",
-    "gray_med_dimmed": "",
-    "gray_med_light": "",
-    "gray_light": "",
-    "gray_lightest": "",
-    "white": "",
-    "red_normal": "",
-    "red_bright": "",
-    "pink_normal": "",
-    "pink_bright": "",
-    "orange_normal": "",
-    "orange_bright": "",
-    "yellow_normal": "",
-    "yellow_bright": "",
-    "green_normal": "",
-    "green_bright": "",
-    "teal_normal": "",
-    "teal_bright": "",
-    "blue_normal": "",
-    "blue_bright": "",
-    "purple_normal": "",
-    "purple_bright": "",
-    "comment": "",
-    "status_ignored": ""
-  },
+        //
+        // Basic Colors
+        //
 
-  "defaults": {
-    "background": "var(background)",
-    "foreground": "var(foreground)",
-    "selection": "var(selection)",
-    "caret": "var(foreground)",
-    "invisibles": "var(gray_med_dimmed)",
-    "line_highlight": "var(line_highlight)"
-  },
+        {
+            "name": "[BASIC] Attribute",
+            "scope": "entity.other.attribute-name",
+            "foreground": "var(purple2)"
+        },
+        {
+            "name": "[BASIC] Comment",
+            "scope": "comment, punctuation.definition.comment, string.docstring, string.docstring punctuation.definition.string, string.quoted.docstring, string.quoted.docstring punctuation.definition.string",
+            "foreground": "var(comment)",
+            "font_style": "italic"
+        },
+        {
+            "name": "[BASIC] Class",
+            "scope": "entity.name",
+            "foreground": "var(pink2)"
+        },
+        {
+            "name": "[BASIC] Class (Inherited)",
+            "scope": "entity.other.inherited-class",
+            "foreground": "var(pink)"
+        },
+        {
+            "name": "[BASIC] Constant",
+            "scope": "constant, constant.numeric, constant.other, constant.other.color, constant.other.quote",
+            "foreground": "var(red2)"
+        },
+        {
+            "name": "[BASIC] Constant (Character)",
+            "scope": "constant.character, constant.character.escape",
+            "foreground": "var(teal2)"
+        },
+        {
+            "name": "[BASIC] Function",
+            "scope": "entity.name.function, variable.function",
+            "foreground": "var(blue2)"
+        },
+        {
+            "name": "[BASIC] Keyword",
+            "scope": "keyword, keyword.control, keyword.operator, keyword.other",
+            "foreground": "var(orange)"
+        },
+        {
+            "name": "[BASIC] Label",
+            "scope": "entity.name.label",
+            "foreground": "var(purple)"
+        },
+        {
+            "name": "[BASIC] Punctuation",
+            "scope": "punctuation.definition, punctuation.definition.array, punctuation.definition.parameters",
+            "foreground": "var(foreground)"
+        },
+        {
+            "name": "[BASIC] Punctuation (Highlight)",
+            "scope": "punctuation.definition.entity, punctuation.definition.variable, punctuation.section.embedded",
+            "foreground": "var(orange)"
+        },
+        {
+            "name": "[BASIC] Section",
+            "scope": "entity.name.section",
+            "foreground": "var(purple)"
+        },
+        {
+            "name": "[BASIC] String",
+            "scope": "string, punctuation.definition.string",
+            "foreground": "var(green2)"
+        },
+        {
+            "name": "[BASIC] String (Regular Expression)",
+            "scope": "string.regexp",
+            "foreground": "var(teal2)"
+        },
+        {
+            "name": "[BASIC] Tag",
+            "scope": "entity.name.tag",
+            "foreground": "var(blue)"
+        },
+        {
+            "name": "[BASIC] Variable",
+            "scope": "variable, variable.interpolation, variable.parameter",
+            "foreground": "var(purple2)"
+        },
 
-  "gutter_settings": {
-    "background": "",
-    "foreground": "",
-    "divider": "var(gray_med)"
-  },
+        //
+        // Builtin Colors
+        //
 
-  "rules": [
+        {
+            "name": "[BUILTIN] Class",
+            "scope": "support.class",
+            "foreground": "var(pink)"
+        },
+        {
+            "name": "[BUILTIN] Constant",
+            "scope": "constant.language, support.constant",
+            "foreground": "var(red)"
+        },
+        {
+            "name": "[BUILTIN] Function",
+            "scope": "support.function, support.function.magic, support.variable.function, variable.function.language",
+            "foreground": "var(teal)"
+        },
+        {
+            "name": "[BUILTIN] Storage",
+            "scope": "storage",
+            "foreground": "var(orange)"
+        },
+        {
+            "name": "[BUILTIN] Type",
+            "scope": "support.type",
+            "foreground": "var(teal)"
+        },
+        {
+            "name": "[BUILTIN] Variable",
+            "scope": "support.variable, variable.language, variable.legacy.builtin, variable.parameter.function.language, variable.parameter.language",
+            "foreground": "var(purple)"
+        },
+        {
+            "name": "[BUILTIN] Variable (Special)",
+            "scope": "support.variable.special, variable.language.special, variable.legacy.builtin.special, variable.parameter.function.language.special, variable.parameter.language.special",
+            "foreground": "var(red)"
+        },
 
-    //
-    // Basic Colors
-    //
+        //
+        // Markup Colors
+        //
 
-    {
-      "name": "[BASIC] Attribute",
-      "scope": "entity.other.attribute-name",
-      "foreground": "var(purple_bright)"
-    },
-    {
-      "name": "[BASIC] Comment",
-      "scope": "comment, punctuation.definition.comment, string.docstring, string.docstring punctuation.definition.string, string.quoted.docstring, string.quoted.docstring punctuation.definition.string",
-      "foreground": "var(comment)",
-      "font_style": "italic"
-    },
-    {
-      "name": "[BASIC] Class",
-      "scope": "entity.name",
-      "foreground": "var(pink_bright)"
-    },
-    {
-      "name": "[BASIC] Class (Inherited)",
-      "scope": "entity.other.inherited-class",
-      "foreground": "var(pink_normal)"
-    },
-    {
-      "name": "[BASIC] Constant",
-      "scope": "constant, constant.numeric, constant.other, constant.other.color, constant.other.quote",
-      "foreground": "var(red_bright)"
-    },
-    {
-      "name": "[BASIC] Constant (Character)",
-      "scope": "constant.character, constant.character.escape",
-      "foreground": "var(teal_bright)"
-    },
-    {
-      "name": "[BASIC] Function",
-      "scope": "entity.name.function, variable.function",
-      "foreground": "var(blue_bright)"
-    },
-    {
-      "name": "[BASIC] Keyword",
-      "scope": "keyword, keyword.control, keyword.operator, keyword.other",
-      "foreground": "var(orange_normal)"
-    },
-    {
-      "name": "[BASIC] Label",
-      "scope": "entity.name.label",
-      "foreground": "var(purple_normal)"
-    },
-    {
-      "name": "[BASIC] Punctuation",
-      "scope": "punctuation.definition, punctuation.definition.array, punctuation.definition.parameters",
-      "foreground": "var(foreground)"
-    },
-    {
-      "name": "[BASIC] Punctuation (Highlight)",
-      "scope": "punctuation.definition.entity, punctuation.definition.variable, punctuation.section.embedded",
-      "foreground": "var(orange_normal)"
-    },
-    {
-      "name": "[BASIC] Section",
-      "scope": "entity.name.section",
-      "foreground": "var(purple_normal)"
-    },
-    {
-      "name": "[BASIC] String",
-      "scope": "string, punctuation.definition.string",
-      "foreground": "var(green_bright)"
-    },
-    {
-      "name": "[BASIC] String (Regular Expression)",
-      "scope": "string.regexp",
-      "foreground": "var(teal_bright)"
-    },
-    {
-      "name": "[BASIC] Tag",
-      "scope": "entity.name.tag",
-      "foreground": "var(blue_normal)"
-    },
-    {
-      "name": "[BASIC] Variable",
-      "scope": "variable, variable.interpolation, variable.parameter",
-      "foreground": "var(purple_bright)"
-    },
+        {
+            "name": "[MARKUP] Bold",
+            "scope": "markup.bold, punctuation.definition.bold",
+            "foreground": "var(teal2)",
+            "font_style": "bold"
+        },
+        {
+            "name": "[MARKUP] Header",
+            "scope": "markup.heading, punctuation.definition.heading",
+            "foreground": "var(blue2)"
+        },
+        {
+            "name": "[MARKUP] Italic",
+            "scope": "markup.italic, punctuation.definition.italic",
+            "foreground": "var(teal2)",
+            "font_style": "italic"
+        },
+        {
+            "name": "[MARKUP] List",
+            "scope": "markup.list, punctuation.definition.list_item.markdown",
+            "foreground": "var(orange)"
+        },
+        {
+            "name": "[MARKUP] Raw",
+            "scope": "markup.raw, markup.raw.inline",
+            "foreground": "var(purple2)"
+        },
+        {
+            "name": "[MARKUP] Underline",
+            "scope": "markup.underline, punctuation.definition.underline",
+            "foreground": "var(teal2)",
+            "font_style": "underline"
+        },
 
-    //
-    // Builtin Colors
-    //
+        //
+        // Validity Colors
+        //
 
-    {
-      "name": "[BUILTIN] Class",
-      "scope": "support.class",
-      "foreground": "var(pink_normal)"
-    },
-    {
-      "name": "[BUILTIN] Constant",
-      "scope": "constant.language, support.constant",
-      "foreground": "var(red_normal)"
-    },
-    {
-      "name": "[BUILTIN] Function",
-      "scope": "support.function, support.function.magic, support.variable.function, variable.function.language",
-      "foreground": "var(teal_normal)"
-    },
-    {
-      "name": "[BUILTIN] Storage",
-      "scope": "storage",
-      "foreground": "var(orange_normal)"
-    },
-    {
-      "name": "[BUILTIN] Type",
-      "scope": "support.type",
-      "foreground": "var(teal_normal)"
-    },
-    {
-      "name": "[BUILTIN] Variable",
-      "scope": "support.variable, variable.language, variable.legacy.builtin, variable.parameter.function.language, variable.parameter.language",
-      "foreground": "var(purple_normal)"
-    },
-    {
-      "name": "[BUILTIN] Variable (Special)",
-      "scope": "support.variable.special, variable.language.special, variable.legacy.builtin.special, variable.parameter.function.language.special, variable.parameter.language.special",
-      "foreground": "var(red_normal)"
-    },
+        {
+            "name": "[VALIDITY] Deprecated",
+            "scope": "invalid.deprecated",
+            "background": "var(yellow)",
+            "foreground": "var(gray4)"
+        },
+        {
+            "name": "[VALIDITY] Illegal",
+            "scope": "invalid.illegal",
+            "background": "var(red)",
+            "foreground": "var(gray4)"
+        },
 
-    //
-    // Markup Colors
-    //
-    {
-      "name": "[MARKUP] Bold",
-      "scope": "markup.bold, punctuation.definition.bold",
-      "foreground": "var(teal_bright)",
-      "font_style": "bold"
-    },
-    {
-      "name": "[MARKUP] Header",
-      "scope": "markup.heading, punctuation.definition.heading",
-      "foreground": "var(blue_bright)"
-    },
-    {
-      "name": "[MARKUP] Italic",
-      "scope": "markup.italic, punctuation.definition.italic",
-      "foreground": "var(teal_bright)",
-      "font_style": "italic"
-    },
-    {
-      "name": "[MARKUP] List",
-      "scope": "markup.list, punctuation.definition.list_item.markdown",
-      "foreground": "var(orange_normal)"
-    },
-    {
-      "name": "[MARKUP] Raw",
-      "scope": "markup.raw, markup.raw.inline",
-      "foreground": "var(purple_bright)"
-    },
-    {
-      "name": "[MARKUP] Underline",
-      "scope": "markup.underline, punctuation.definition.underline",
-      "foreground": "var(teal_bright)",
-      "font_style": "underline"
-    },
+        //
+        // Region Colors
+        //
 
-    //
-    // Validity Colors
-    //
+        {
+            "name": "[REGION] Red",
+            "scope": "region.redish",
+            "foreground": "var(red)"
+        },
+        {
+            "name": "[REGION] Orange",
+            "scope": "region.orangish",
+            "foreground": "var(orange)"
+        },
+        {
+            "name": "[REGION] Yellow",
+            "scope": "region.yellowish",
+            "foreground": "var(yellow)"
+        },
+        {
+            "name": "[REGION] Green",
+            "scope": "region.greenish",
+            "foreground": "var(green)"
+        },
+        {
+            "name": "[REGION] Blue",
+            "scope": "region.bluish",
+            "foreground": "var(blue)"
+        },
+        {
+            "name": "[REGION] Purple",
+            "scope": "region.purplish",
+            "foreground": "var(purple)"
+        },
+        {
+            "name": "[REGION] Pink",
+            "scope": "region.pinkish",
+            "foreground": "var(pink)"
+        },
 
-    {
-      "name": "[VALIDITY] Deprecated",
-      "scope": "invalid.deprecated",
-      "background": "var(yellow_normal)",
-      "foreground": "var(gray_med)"
-    },
-    {
-      "name": "[VALIDITY] Illegal",
-      "scope": "invalid.illegal",
-      "background": "var(red_normal)",
-      "foreground": "var(gray_med)"
-    },
+        //
+        // Status Colors
+        //
 
-    //
-    // Region Colors
-    //
+        {
+            "name": "[STATUS] Changed",
+            "scope": "markup.changed, markup.changed.git_gutter",
+            "foreground": "var(pink2)"
+        },
+        {
+            "name": "[STATUS] Deleted",
+            "scope": "markup.deleted, markup.deleted.git_gutter",
+            "foreground": "var(red2)"
+        },
+        {
+            "name": "[STATUS] Ignored",
+            "scope": "markup.ignored, markup.ignored.git_gutter",
+            "foreground": "var(ignored)"
+        },
+        {
+            "name": "[STATUS] Inserted",
+            "scope": "markup.inserted, markup.inserted.git_gutter",
+            "foreground": "var(green2)"
+        },
+        {
+            "name": "[STATUS] Untracked",
+            "scope": "markup.untracked, markup.untracked.git_gutter",
+            "foreground": "var(gray3)"
+        },
 
-    {
-      "name": "[REGION] Red",
-      "scope": "region.redish",
-      "foreground": "var(red_normal)"
-    },
-    {
-      "name": "[REGION] Orange",
-      "scope": "region.orangish",
-      "foreground": "var(orange_normal)"
-    },
-    {
-      "name": "[REGION] Yellow",
-      "scope": "region.yellowish",
-      "foreground": "var(yellow_normal)"
-    },
-    {
-      "name": "[REGION] Green",
-      "scope": "region.greenish",
-      "foreground": "var(green_normal)"
-    },
-    {
-      "name": "[REGION] Blue",
-      "scope": "region.bluish",
-      "foreground": "var(blue_normal)"
-    },
-    {
-      "name": "[REGION] Purple",
-      "scope": "region.purplish",
-      "foreground": "var(purple_normal)"
-    },
-    {
-      "name": "[REGION] Pink",
-      "scope": "region.pinkish",
-      "foreground": "var(pink_normal)"
-    },
+        //
+        // Package-specific Colors
+        //
 
-    //
-    // Status Colors
-    //
-
-    {
-      "name": "[STATUS] Changed",
-      "scope": "markup.changed, markup.changed.git_gutter",
-      "foreground": "var(pink_bright)"
-    },
-    {
-      "name": "[STATUS] Deleted",
-      "scope": "markup.deleted, markup.deleted.git_gutter",
-      "foreground": "var(red_bright)"
-    },
-    {
-      "name": "[STATUS] Ignored",
-      "scope": "markup.ignored, markup.ignored.git_gutter",
-      "foreground": "var(status_ignored)"
-    },
-    {
-      "name": "[STATUS] Inserted",
-      "scope": "markup.inserted, markup.inserted.git_gutter",
-      "foreground": "var(green_bright)"
-    },
-    {
-      "name": "[STATUS] Untracked",
-      "scope": "markup.untracked, markup.untracked.git_gutter",
-      "foreground": "var(gray_med_dark)"
-    },
-
-    //
-    // Package-specific Colors
-    //
-
-    {
-      "name": "[ANACONDA] Illegal (Outline)",
-      "scope": "anaconda.outline.illegal",
-      "foreground": "var(error)"
-    },
-    {
-      "name": "[ANACONDA] Violation (Outline)",
-      "scope": "anaconda.outline.violation",
-      "foreground": "var(error)"
-    },
-    {
-      "name": "[ANACONDA] Illegal (Underline)",
-      "scope": "anaconda.underline.illegal",
-      "foreground": "var(error)"
-    },
-    {
-      "name": "[ANACONDA] Violation (Underline)",
-      "scope": "anaconda.underline.violation",
-      "foreground": "var(error)"
-    },
-    {
-      "name": "[ANACONDA] Warning (Outline)",
-      "scope": "anaconda.outline.warning",
-      "foreground": "var(warn)"
-    },
-    {
-      "name": "[ANACONDA] Warning (Underline)",
-      "scope": "anaconda.underline.warning",
-      "foreground": "var(warn)"
-    },
-    {
-      "name": "[SUBLIME LINTER] Error",
-      "scope": "sublimelinter.mark.error",
-      "foreground": "var(error)"
-    },
-    {
-      "name": "[SUBLIME LINTER] Gutter Mark",
-      "scope": "sublimelinter.gutter-mark",
-      "foreground": "var(info)"
-    },
-    {
-      "name": "[SUBLIME LINTER] Warning",
-      "scope": "sublimelinter.mark.warning",
-      "foreground": "var(warn)"
-    },
-    {
-      "name": "[SUBLIME PYTHON IDE] Error",
-      "scope": "sublimepythonide.mark.error",
-      "foreground": "var(error)"
-    },
-    {
-      "name": "[SUBLIME PYTHON IDE] Gutter Mark",
-      "scope": "sublimepythonide.gutter-mark",
-      "foreground": "var(info)"
-    },
-    {
-      "name": "[SUBLIME PYTHON IDE] Warning",
-      "scope": "sublimepythonide.mark.warning",
-      "foreground": "var(warn)"
-    }
-  ]
+        {
+            "name": "[ANACONDA] Illegal (Outline)",
+            "scope": "anaconda.outline.illegal",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[ANACONDA] Violation (Outline)",
+            "scope": "anaconda.outline.violation",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[ANACONDA] Illegal (Underline)",
+            "scope": "anaconda.underline.illegal",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[ANACONDA] Violation (Underline)",
+            "scope": "anaconda.underline.violation",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[ANACONDA] Warning (Outline)",
+            "scope": "anaconda.outline.warning",
+            "foreground": "var(warn)"
+        },
+        {
+            "name": "[ANACONDA] Warning (Underline)",
+            "scope": "anaconda.underline.warning",
+            "foreground": "var(warn)"
+        },
+        {
+            "name": "[SUBLIME LINTER] Error",
+            "scope": "sublimelinter.mark.error",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[SUBLIME LINTER] Gutter Mark",
+            "scope": "sublimelinter.gutter-mark",
+            "foreground": "var(foreground)"
+        },
+        {
+            "name": "[SUBLIME LINTER] Warning",
+            "scope": "sublimelinter.mark.warning",
+            "foreground": "var(warn)"
+        },
+        {
+            "name": "[SUBLIME PYTHON IDE] Error",
+            "scope": "sublimepythonide.mark.error",
+            "foreground": "var(error)"
+        },
+        {
+            "name": "[SUBLIME PYTHON IDE] Gutter Mark",
+            "scope": "sublimepythonide.gutter-mark",
+            "foreground": "var(foreground)"
+        },
+        {
+            "name": "[SUBLIME PYTHON IDE] Warning",
+            "scope": "sublimepythonide.mark.warning",
+            "foreground": "var(warn)"
+        }
+    ]
 }
