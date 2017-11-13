@@ -25,14 +25,14 @@
         "orange2": "hsl(33, 70%, 50%)",
         "yellow": "hsl(55, 70%, 40%)",
         "yellow2": "hsl(55, 70%, 50%)",
-        "green": "hsl(110, 70%, 40%)",
-        "green2": "hsl(110, 70%, 50%)",
+        "green": "hsl(110, 60%, 30%)",
+        "green2": "hsl(110, 60%, 45%)",
         "teal": "hsl(160, 70%, 40%)",
         "teal2": "hsl(160, 70%, 50%)",
-        "blue": "hsl(213, 70%, 40%)",
-        "blue2": "hsl(213, 70%, 50%)",
-        "purple": "hsl(282, 70%, 40%)",
-        "purple2": "hsl(282, 70%, 50%)"
+        "blue": "hsl(213, 60%, 47%)",
+        "blue2": "hsl(213, 100%, 65%)",
+        "purple": "hsl(260, 50%, 50%)",
+        "purple2": "hsl(260, 100%, 67%)"
     },
     "globals": {
         "background": "var(background)",
