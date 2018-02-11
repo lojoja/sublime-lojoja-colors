@@ -307,7 +307,7 @@
         },
         {
             "name": "[SUBLIME LINTER] Error",
-            "scope": "sublimelinter.mark.error",
+            "scope": "markup.deleted.sublime_linter, markup.error.sublime_linter, sublimelinter.mark.error",
             "foreground": "var(error)"
         },
         {
@@ -317,7 +317,7 @@
         },
         {
             "name": "[SUBLIME LINTER] Warning",
-            "scope": "sublimelinter.mark.warning",
+            "scope": "markup.changed.sublime_linter, markup.warning.sublime_linter, sublimelinter.mark.warning",
             "foreground": "var(warn)"
         },
         {
