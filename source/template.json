@@ -97,7 +97,7 @@
         },
         {
             "name": "[BASIC] Tag",
-            "scope": "entity.name.tag",
+            "scope": "entity.name.tag, meta.mapping.key.yaml meta.string.yaml string",
             "foreground": "var(blue)"
         },
         {
