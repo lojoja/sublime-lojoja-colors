@@ -306,6 +306,63 @@
             "foreground": "var(warn)"
         },
         {
+            "name": "[RAINBOW CSV] Rainbow 1",
+            "scope": "rainbow1",
+            "foreground": "var(foreground)"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow 2",
+            "scope": "keyword.rainbow2",
+            "foreground": "var(red)"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow 3",
+            "scope": "entity.name.rainbow3",
+            "foreground": "var(orange)"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow 4",
+            "scope": "comment.rainbow4",
+            "foreground": "var(yellow)",
+            "font_style": "none"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow 5",
+            "scope": "string.rainbow5",
+            "foreground": "var(green)"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow 6",
+            "scope": "entity.name.tag.rainbow6",
+            "foreground": "var(teal)"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow 7",
+            "scope": "storage.type.rainbow7",
+            "foreground": "var(blue)"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow 8",
+            "scope": "support.rainbow8",
+            "foreground": "var(purple)"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow 9",
+            "scope": "constant.language.rainbow9",
+            "foreground": "var(pink2)"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow 10",
+            "scope": "variable.language.rainbow10",
+            "foreground": "var(comment)"
+        },
+        {
+            "name": "[RAINBOW CSV] Rainbow Error",
+            "scope": "invalid.rainbowerror",
+            "background": "var(red)",
+            "foreground": "var(gray4)"
+        },
+        {
             "name": "[SUBLIME LINTER] Error",
             "scope": "markup.deleted.sublime_linter, markup.error.sublime_linter, sublimelinter.mark.error",
             "foreground": "var(error)"
