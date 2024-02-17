@@ -1,0 +1,81 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "sublime-lojoja-colors"
+version = "1.1.6a0"
+description = "A collection of color schemes for Sublime Text with extended scope, language, and package support."
+readme = "README.md"
+license = "MIT"
+authors = ["lojoja <dev@lojoja.com>"]
+homepage = "https://github.com/lojoja/sublime-lojoja-colors"
+repository = "https://github.com/lojoja/sublime-lojoja-colors"
+classifiers = [
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+]
+packages = [
+    {include = "sublime_lojoja_colors.py", from = "src"}
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/lojoja/sublime-lojoja-colors/issues"
+
+[tool.poetry.dependencies]
+python = "^3.11.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.0.0"
+pylint = "^3.0.0"
+pyright = "^1.1.349"
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.12.0"
+
+[tool.poetry.scripts]
+build = "sublime_lojoja_colors:main"
+
+[tool.black]
+include = '\.pyi?$'
+line-length = 120
+skip-magic-trailing-comma = true
+target_version = ["py311"]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "def __repr__",
+  "if log:",
+]
+fail_under = 100
+show_missing = true
+
+[tool.pylint.main]
+ignore-paths = [".*/.venv/.*.py"]
+load-plugins = ["pylint.extensions.mccabe"]
+
+[tool.pylint.design]
+max-complexity = 15
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pyright]
+ignore = [".venv/*"]
+pythonVersion = "3.11"
+venv = [".venv"]
+venvPath = "."
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+pythonPath = ["src"]
+testpaths = ["tests"]
+markers = []
+filterwarnings = ["ignore:::.*pytest_cov*"]

@@ -27,7 +27,7 @@
   "build_systems": [
     {
       "name": "Sublime Lojoja Colors Build",
-      "cmd": ["./build.py"],
+      "cmd": ["poetry", "run", "build"],
       "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
       "selector": "source.python"
     }

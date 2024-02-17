@@ -1,16 +1,14 @@
-#! /usr/bin/env python3
-
 from codecs import open
 import copy
 import json
 from pathlib import Path
 import re
-import sys
 
-SOURCE_PATH = Path('source')
-SCHEMES_FILE = Path(SOURCE_PATH, 'schemes.json')
-COLORS_FILE = Path(SOURCE_PATH, 'colors.json')
-TEMPLATE_FILE = Path(SOURCE_PATH, 'template.json')
+PROJECT_PATH = Path(__file__).parents[1]
+SOURCE_PATH = Path(PROJECT_PATH, "src", "data")
+SCHEMES_FILE = Path(SOURCE_PATH, "schemes.json")
+COLORS_FILE = Path(SOURCE_PATH, "colors.json")
+TEMPLATE_FILE = Path(SOURCE_PATH, "template.json")
 
 
 def load_data(file):
@@ -20,13 +18,13 @@ def load_data(file):
     Comments are allowed in source data.
     Comments must start with "//" and be the only content on the line.
     """
-    pattern = re.compile(r'^\s*//.*$', re.M)
+    pattern = re.compile(r"^\s*//.*$", re.M)
     data = None
 
     try:
-        with open(file, mode='rb', encoding='utf-8') as f:
+        with open(file, mode="rb", encoding="utf-8") as f:
             raw_data = f.read()
-            data = json.loads(re.sub(pattern, '', raw_data))
+            data = json.loads(re.sub(pattern, "", raw_data))
     except ValueError:
         raise ValueError('Failed to parse file: "{0}"'.format(file))
 
@@ -36,7 +34,7 @@ def load_data(file):
 def save_data(data, filename):
     """Save color scheme."""
     try:
-        with open(filename, mode='w', encoding='utf-8') as f:
+        with open(filename, mode="w", encoding="utf-8") as f:
             f.write(json.dumps(data, indent=4))
     except ValueError:
         raise ValueError('Failed to create file: "{0}"'.format(filename))
@@ -48,30 +46,24 @@ def main():
     template = load_data(TEMPLATE_FILE)
 
     for name, data in schemes.items():
-        shade = colors['shade'][data['shade']]
-        palette = colors['palette'][data['palette']]
+        shade = colors["shade"][data["shade"]]
+        palette = colors["palette"][data["palette"]]
 
         # Create a new color scheme
         color_scheme = copy.deepcopy(template)
 
         # Set basic information
-        color_scheme.update({
-            'name': name,
-            'author': data['author']
-        })
+        color_scheme.update({"name": name, "author": data["author"]})
 
         # Set variables
-        variables = colors['base']
-        variables.update(shade['variables'])
+        variables = colors["base"]
+        variables.update(shade["variables"])
         variables.update(palette)
-        color_scheme['variables'].update(variables)
+        color_scheme["variables"].update(variables)
 
         # Set global styles
-        color_scheme['globals'].update(shade['globals'])
+        color_scheme["globals"].update(shade["globals"])
 
         # Save scheme
-        filename = '{0}.sublime-color-scheme'.format(name)
+        filename = "{0}/{1}.sublime-color-scheme".format(PROJECT_PATH, name)
         save_data(color_scheme, filename)
-
-if __name__ == '__main__':
-    sys.exit(main())
