@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "sublime-lojoja-colors"
-version = "1.1.6"
+version = "1.1.7a0"
 description = "A collection of color schemes for Sublime Text with extended scope, language, and package support."
 readme = "README.md"
 license = "MIT"
