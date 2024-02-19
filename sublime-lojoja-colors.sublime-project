@@ -26,10 +26,22 @@
   },
   "build_systems": [
     {
-      "name": "Sublime Lojoja Colors Build",
+      "name": "Build color schemes",
       "cmd": ["poetry", "run", "build"],
       "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
-      "selector": "source.python"
+      "selector": "source.json, source.python"
+    },
+    {
+      "name": "Create color scheme configuration JSON schema",
+      "cmd": ["poetry", "run", "schema"],
+      "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+      "selector": "source.json, source.python"
+    },
+    {
+      "name": "Validate color schemes",
+      "cmd": ["poetry", "run", "validate"],
+      "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+      "selector": "source.json, source.python"
     }
   ]
 }

@@ -8,7 +8,7 @@
   "trailingComma": "all",
   "overrides": [
     {
-      "files": ["source/*.json", "*.sublime-color-scheme", "*.sublime-project"],
+      "files": ["*.sublime-color-scheme", "*.sublime-project"],
       "options": {
         "parser": "jsonc"
       }

@@ -1,0 +1,76 @@
+{
+  "$defs": {
+    "Palette": {
+      "description": "A color scheme palette.\n\n:attribute globals: Sublime color scheme `global` parameters.\n:attribute variables: Sublime color scheme `variable` parameters.",
+      "properties": {
+        "globals": {
+          "additionalProperties": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Globals",
+          "type": "object"
+        },
+        "variables": {
+          "additionalProperties": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Variables",
+          "type": "object"
+        }
+      },
+      "required": ["globals", "variables"],
+      "title": "Palette",
+      "type": "object"
+    },
+    "Scheme": {
+      "description": "A color scheme definition.\n\n:attribute name: The color scheme name.\n:attribute author: The color schemes author.\n:attribute palettes: The names of palettes to include in this color scheme.",
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "author": {
+          "minLength": 1,
+          "title": "Author",
+          "type": "string"
+        },
+        "palettes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Palettes",
+          "type": "array"
+        }
+      },
+      "required": ["name", "author", "palettes"],
+      "title": "Scheme",
+      "type": "object"
+    }
+  },
+  "description": "Color scheme configuration file.\n\n:attribute palettes: The color scheme palettes, keyed by their name.\n:attribute schemes: A list of color scheme definitions.",
+  "properties": {
+    "palettes": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Palette"
+      },
+      "default": {},
+      "title": "Palettes",
+      "type": "object"
+    },
+    "schemes": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Scheme"
+      },
+      "title": "Schemes",
+      "type": "array"
+    }
+  },
+  "title": "Config",
+  "type": "object"
+}
