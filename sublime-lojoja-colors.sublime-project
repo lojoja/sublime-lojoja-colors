@@ -18,7 +18,7 @@
       "ltex-ls": {
         "settings": {
           "ltex.dictionary": {
-            "en-US": ["lojoja", "pcrepo"]
+            "en-US": ["lojoja", "lojoja-pcrepo"]
           }
         }
       }
