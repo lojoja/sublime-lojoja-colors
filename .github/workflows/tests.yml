@@ -3,10 +3,8 @@ name: Tests
 on:
   push:
     branches: [main, dev]
-    paths: ["poetry.lock", "pyproject.toml", "src/**/*.py", "tests/**"]
   pull_request:
     branches: [main, dev]
-    paths: ["poetry.lock", "pyproject.toml", "src/**/*.py", "tests/**"]
   workflow_dispatch:
 
 jobs:
