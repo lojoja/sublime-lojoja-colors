@@ -29,7 +29,7 @@ pydantic = "^2.10.3"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.10.0"
-pylint = "^3.3.2"
+pylint = "^3.3.3"
 pyright = "^1.1.391"
 pytest = "^8.3.4"
 pytest-cov = "^6.0.0"
