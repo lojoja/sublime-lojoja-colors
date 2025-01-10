@@ -9,7 +9,7 @@ description = "A collection of color schemes for Sublime Text with extended scop
 license = {text = "MIT"}
 readme = "README.md"
 authors = [
-  { name = "lojoja", email = "<dev@lojoja.com>" }
+  { name = "lojoja", email = "dev@lojoja.com" }
 ]
 requires-python = ">=3.11,<4"
 dependencies = [
