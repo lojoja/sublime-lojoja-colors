@@ -1,16 +1,33 @@
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry]
+[project]
 name = "sublime-lojoja-colors"
 version = "1.1.7a0"
 description = "A collection of color schemes for Sublime Text with extended scope, language, and package support."
+license = {text = "MIT"}
 readme = "README.md"
-license = "MIT"
-authors = ["lojoja <dev@lojoja.com>"]
+authors = [
+  { name = "lojoja", email = "<dev@lojoja.com>" }
+]
+requires-python = ">=3.11,<4"
+dependencies = [
+  "pydantic>=2.10.4,<3"
+]
+dynamic = ["classifiers"]
+
+[project.urls]
 homepage = "https://github.com/lojoja/sublime-lojoja-colors"
 repository = "https://github.com/lojoja/sublime-lojoja-colors"
+"Bug Tracker" = "https://github.com/lojoja/sublime-lojoja-colors/issues"
+
+[project.scripts]
+build = "sublime_lojoja_colors:build"
+schema = "sublime_lojoja_colors:config_schema"
+validate = "sublime_lojoja_colors:validate"
+
+[tool.poetry]
 classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
@@ -20,13 +37,6 @@ packages = [
     {include = "sublime_lojoja_colors.py", from = "src"}
 ]
 
-[tool.poetry.urls]
-"Bug Tracker" = "https://github.com/lojoja/sublime-lojoja-colors/issues"
-
-[tool.poetry.dependencies]
-python = "^3.11.0"
-pydantic = "^2.10.4"
-
 [tool.poetry.group.dev.dependencies]
 black = "^24.10.0"
 pylint = "^3.3.3"
@@ -34,11 +44,6 @@ pyright = "^1.1.391"
 pytest = "^8.3.4"
 pytest-cov = "^6.0.0"
 pytest-mock = "^3.12.0"
-
-[tool.poetry.scripts]
-build = "sublime_lojoja_colors:build"
-schema = "sublime_lojoja_colors:config_schema"
-validate = "sublime_lojoja_colors:validate"
 
 [tool.black]
 include = '\.pyi?$'
