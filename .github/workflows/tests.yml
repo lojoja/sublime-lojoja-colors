@@ -3,27 +3,32 @@ name: Tests
 on:
   push:
     branches: [main, dev]
+    paths:
+      - .github/workflows/lint.yml
+      - "**/*.py"
+      - poetry.lock
+      - pyproject.toml
   pull_request:
     branches: [main, dev]
+    paths:
+      - .github/workflows/lint.yml
+      - "**/*.py"
+      - poetry.lock
+      - pyproject.toml
   workflow_dispatch:
 
 jobs:
-  tests:
-    name: Tests
+  pytest:
+    name: Pytest
     runs-on: ubuntu-latest
-    env:
-      PYTHON_VERSION: "3.11"
     steps:
       - name: Check out repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - name: Install poetry
-        run: pipx install poetry
-      - name: Set up python ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+
+      - name: Setup python environment
+        uses: lojoja/action-setup-python-env@main
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: poetry
-      - name: Install project
-        run: poetry install
-      - name: Run tests
+          python-version: "3.11"
+
+      - name: Run pytest
         run: poetry run pytest --cov
