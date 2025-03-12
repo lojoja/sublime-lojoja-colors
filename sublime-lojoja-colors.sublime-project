@@ -1,7 +1,7 @@
 {
   "folders": [
     {
-      "folder_exclude_patterns": ["__pycache__", "*.egg-info", ".pytest_cache"],
+      "folder_exclude_patterns": ["__pycache__", "*.egg-info", ".pytest_cache", "node_modules"],
       "path": "."
     }
   ],
