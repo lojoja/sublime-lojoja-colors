@@ -9,3 +9,4 @@
 .pytest_cache
 .venv
 __pycache__
+node_modules/

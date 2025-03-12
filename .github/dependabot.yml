@@ -10,3 +10,8 @@ updates:
     directory: /
     schedule:
       interval: monthly
+  - package-ecosystem: npm
+    target-branch: dev
+    directory: /
+    schedule:
+      interval: monthly
