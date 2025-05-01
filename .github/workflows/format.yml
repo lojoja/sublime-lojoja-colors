@@ -23,7 +23,7 @@ jobs:
 
       - name: Check for non-python source changes
         id: others-changed
-        uses: tj-actions/changed-files@b74df86ccb65173a8e33ba5492ac1a2ca6b216fd
+        uses: tj-actions/changed-files@4168bb487d5b82227665ab4ec90b67ce02691741
         with:
           files_ignore: |
             **/*.py
@@ -32,7 +32,7 @@ jobs:
 
       - name: Check for python source changes
         id: python-changed
-        uses: tj-actions/changed-files@b74df86ccb65173a8e33ba5492ac1a2ca6b216fd
+        uses: tj-actions/changed-files@4168bb487d5b82227665ab4ec90b67ce02691741
         with:
           files: |
             .github/workflows/format.yml
