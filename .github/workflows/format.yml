@@ -39,7 +39,6 @@ jobs:
                 - "**.lock"
                 - "**.py"
                 - "**.toml"
-                - .gitignore
                 - LICENSE
 
   black:
