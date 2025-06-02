@@ -2,21 +2,37 @@ name: Validate
 
 on:
   push:
-    branches: [main, dev]
-    paths:
-      - .github/workflows/validate.yml
-      - src/data/**
+    branches: [dev, main]
   pull_request:
-    branches: [main, dev]
-    paths:
-      - .github/workflows/validate.yml
-      - src/data/**
+    branches: [dev, main]
+  workflow_call:
   workflow_dispatch:
 
+env:
+  PACKAGE_MANAGER: poetry
+  PYTHON_VERSION: "3.13"
+
 jobs:
-  schemes:
-    name: Validate color schemes
+  changes:
+    name: Identify changes
     runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.dedupe.outputs.should_skip }}
+    steps:
+      - name: Dedupe
+        id: dedupe
+        uses: lojoja/action-dedupe@main
+        with:
+          github_token: ${{ github.token }}
+          paths: |
+            - .github/workflows/validate.yml
+            - src/data/**
+
+  validate-data:
+    name: Validate data
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.should_skip == 'false'
     steps:
       - name: Check out repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -24,7 +40,21 @@ jobs:
       - name: Setup python environment
         uses: lojoja/action-setup-python-env@main
         with:
-          python-version: "3.11"
+          package_manager: ${{ env.PACKAGE_MANAGER }}
+          python_version: ${{ env.PYTHON_VERSION }}
 
       - name: Run validate
-        run: poetry run validate
+        run: ${{ env.PACKAGE_MANAGER }} run validate
+
+  result:
+    name: Validate result
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - validate-data
+    steps:
+      - name: Tests failed
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1
+      - name: Tests passed
+        run: exit 0

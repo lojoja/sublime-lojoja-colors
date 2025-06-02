@@ -2,80 +2,86 @@ name: Format
 
 on:
   push:
-    branches: [main, dev]
+    branches: [dev, main]
   pull_request:
-    branches: [main, dev]
+    branches: [dev, main]
+  workflow_call:
   workflow_dispatch:
 
+env:
+  NODE_VERSION: "22"
+  PACKAGE_MANAGER: poetry
+  PYTHON_VERSION: "3.13"
+
 jobs:
-  changed-files:
-    name: Identify changed files
+  changes:
+    name: Identify changes
     runs-on: ubuntu-latest
     outputs:
-      others_changed: ${{ steps.set-result.outputs.others_changed }}
-      python_changed: ${{ steps.set-result.outputs.python_changed }}
+      should_skip: ${{ steps.dedupe.outputs.should_skip }}
+      named: ${{ steps.dedupe.outputs.named }}
     steps:
-      - name: Check out repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Dedupe
+        id: dedupe
+        uses: lojoja/action-dedupe@main
         with:
-          fetch-depth: 2
-          persist-credentials: true
-
-      - name: Check for non-python source changes
-        id: others-changed
-        uses: tj-actions/changed-files@b74df86ccb65173a8e33ba5492ac1a2ca6b216fd
-        with:
-          files_ignore: |
-            **/*.py
-            poetry.lock
-            pyproject.toml
-
-      - name: Check for python source changes
-        id: python-changed
-        uses: tj-actions/changed-files@b74df86ccb65173a8e33ba5492ac1a2ca6b216fd
-        with:
-          files: |
-            .github/workflows/format.yml
-            **/*.py
-            poetry.lock
-            pyproject.toml
-
-      - name: Set file change results
-        id: set-result
-        run: |
-          echo "others_changed=${{ steps.others-changed.outputs.any_changed }}" >> "$GITHUB_OUTPUT"
-          echo "python_changed=${{ steps.python-changed.outputs.any_changed }}" >> "$GITHUB_OUTPUT"
+          github_token: ${{ github.token }}
+          paths: |
+            - .github/workflows/format.yml
+          paths_named: |
+            black:
+              paths:
+                - "**.py"
+                - ${{ env.PACKAGE_MANAGER }}.lock
+                - pyproject.toml
+            prettier:
+              paths_ignore:
+                - "**.lock"
+                - "**.py"
+                - "**.toml"
+                - .gitignore
+                - LICENSE
 
   black:
     name: Black
     runs-on: ubuntu-latest
-    needs: changed-files
-    if: ${{ needs.changed-files.outputs.python_changed == 'true' }}
+    needs: changes
+    if: needs.changes.outputs.should_skip == 'false' || ! fromJSON(needs.changes.outputs.named).black.should_skip
     steps:
       - name: Check out repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
-      - name: Setup python environment
-        uses: lojoja/action-setup-python-env@main
-        with:
-          python-version: "3.11"
-
       - name: Run black
-        run: poetry run black --check .
+        uses: lojoja/action-black@main
+        with:
+          package_manager: ${{ env.PACKAGE_MANAGER }}
+          python_version: ${{ env.PYTHON_VERSION }}
 
   prettier:
     name: Prettier
     runs-on: ubuntu-latest
-    needs: changed-files
-    if: ${{ needs.changed-files.outputs.others_changed == 'true' }}
+    needs: changes
+    if: needs.changes.outputs.should_skip == 'false' || ! fromJSON(needs.changes.outputs.named).prettier.should_skip
     steps:
       - name: Check out repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
-      - name: Setup node environment
-        uses: lojoja/action-setup-node-env@main
-        with:
-          node-version: 22
-
       - name: Run prettier
-        run: pnpm prettier --check .
+        uses: lojoja/action-prettier@main
+        with:
+          install: "true"
+          node_version: ${{ env.NODE_VERSION }}
+
+  result:
+    name: Format result
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - black
+      - prettier
+    steps:
+      - name: Format failed
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1
+      - name: Format passed
+        run: exit 0
