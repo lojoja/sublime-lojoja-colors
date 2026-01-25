@@ -13,7 +13,6 @@ import typing_extensions as te
 
 from pydantic import BaseModel, Field, StringConstraints, model_validator, field_validator, ValidationInfo
 
-
 NeStr: t.TypeAlias = te.Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 
 PROJECT_DIR = Path(__file__).parents[1]
