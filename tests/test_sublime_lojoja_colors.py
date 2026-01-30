@@ -8,9 +8,11 @@ from pytest_mock import MockerFixture
 
 from sublime_lojoja_colors import (
     Config,
+    ConfigData,
     Palette,
     Scheme,
     SublimeColorScheme,
+    SublimeColorSchemeData,
     SublimeColorSchemeTemplate,
     build,
     config_schema,
@@ -123,7 +125,8 @@ def test_sublime_color_scheme_validate_variable_references(attr: str, var_name: 
 @pytest.mark.parametrize("value", ["", " ", "x"])
 @pytest.mark.parametrize("attr", ["name", "author"])
 def test_sublime_color_scheme_template_name_author(attr: str, value: str) -> None:
-    model = SublimeColorSchemeTemplate(**{attr: value})
+    data: SublimeColorSchemeData = {attr: value}
+    model = SublimeColorSchemeTemplate(**data)
     assert getattr(model, attr) == value
 
 
@@ -164,7 +167,7 @@ def test_build(
 ) -> None:
     monkeypatch.setattr("sublime_lojoja_colors.PROJECT_DIR", tmp_path)
 
-    config_data = {
+    config_data: ConfigData = {
         "schemes": [{"name": "x", "author": "x", "palettes": ["x"]}],
         "palettes": {"x": {"globals": {"x": "y"}, "variables": {"x": "y"}}},
     }

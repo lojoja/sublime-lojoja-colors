@@ -32,11 +32,11 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
-    "pyright>=1.1.408,<2",
     "pytest>=9.0.2,<10",
     "pytest-cov>=7.0.0,<8",
     "pytest-mock>=3.15.1,<4",
     "ruff>=0.14.14",
+    "ty>=0.0.14",
 ]
 
 [tool.coverage.report]
@@ -54,12 +54,6 @@ sources = ["src"]
 [tool.hatch.build.targets.wheel]
 include = ["*.py", "data/"]
 exclude = ["tests/**"]
-
-[tool.pyright]
-ignore = [".venv/*"]
-pythonVersion = "3.11"
-venv = ".venv"
-venvPath = "."
 
 [tool.pytest]
 testpaths = ["tests"]
@@ -102,6 +96,9 @@ mccabe.max-complexity = 10
   "PLR0913",
   "S101"
 ]
+
+[tool.ty]
+src.include = ["src", "tests"]
 
 [tool.uv]
 package = false

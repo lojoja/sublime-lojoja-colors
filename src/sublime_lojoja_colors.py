@@ -49,6 +49,13 @@ class Config(BaseModel):
         return v
 
 
+class ConfigData(t.TypedDict):
+    """Config data using native Python types."""
+
+    palettes: dict[str, dict[str, dict[str, str]]]
+    schemes: list[dict[str, str | list[str]]]
+
+
 class Palette(BaseModel):
     """A color scheme palette.
 
@@ -113,6 +120,16 @@ class SublimeColorScheme(BaseModel):
         return self
 
 
+class SublimeColorSchemeData(t.TypedDict, total=False):
+    """Color scheme data using native Python types."""
+
+    name: str
+    author: str
+    variables: dict[str, str]
+    globals: dict[str, str]
+    rules: list[dict[str, str]]
+
+
 class SublimeColorSchemeTemplate(BaseModel):
     """A Sublime Text color scheme template.
 
@@ -171,7 +188,7 @@ def construct_color_scheme(
     :param scheme: The color scheme definition.
     :param palettes: The available color palettes.
     """
-    data = {
+    data: SublimeColorSchemeData = {
         "name": scheme.name,
         "author": scheme.author,
         "variables": template.variables.copy(),
