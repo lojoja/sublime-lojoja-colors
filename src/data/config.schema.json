@@ -8,6 +8,9 @@
             "minLength": 1,
             "type": "string"
           },
+          "propertyNames": {
+            "minLength": 1
+          },
           "title": "Globals",
           "type": "object"
         },
@@ -15,6 +18,9 @@
           "additionalProperties": {
             "minLength": 1,
             "type": "string"
+          },
+          "propertyNames": {
+            "minLength": 1
           },
           "title": "Variables",
           "type": "object"
@@ -59,6 +65,9 @@
         "$ref": "#/$defs/Palette"
       },
       "default": {},
+      "propertyNames": {
+        "minLength": 1
+      },
       "title": "Palettes",
       "type": "object"
     },
