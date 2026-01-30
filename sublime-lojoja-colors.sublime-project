@@ -27,19 +27,19 @@
   "build_systems": [
     {
       "name": "Build color schemes",
-      "cmd": ["poetry", "run", "build"],
+      "cmd": ["uv", "run", "build"],
       "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
       "selector": "source.json, source.python"
     },
     {
       "name": "Create color scheme configuration JSON schema",
-      "cmd": ["poetry", "run", "schema"],
+      "cmd": ["uv", "run", "schema"],
       "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
       "selector": "source.json, source.python"
     },
     {
       "name": "Validate color schemes",
-      "cmd": ["poetry", "run", "validate"],
+      "cmd": ["uv", "run", "validate"],
       "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
       "selector": "source.json, source.python"
     }
