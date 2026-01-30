@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """Validate and build defined color schemes."""
 
 from __future__ import annotations
