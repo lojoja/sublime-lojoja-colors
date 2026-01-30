@@ -1,17 +1,16 @@
-"""
-sublime_lojoja_colors
+#!/usr/bin/env python3
 
-Validate and build defined color schemes.
-"""
+"""Validate and build defined color schemes."""
 
 from __future__ import annotations
+
 import json
-from pathlib import Path
 import re
 import typing as t
-import typing_extensions as te
+from pathlib import Path
 
-from pydantic import BaseModel, Field, StringConstraints, model_validator, field_validator, ValidationInfo
+import typing_extensions as te
+from pydantic import BaseModel, Field, StringConstraints, ValidationInfo, field_validator, model_validator
 
 NeStr: t.TypeAlias = te.Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 
@@ -45,7 +44,8 @@ class Config(BaseModel):
         for scheme in v:
             unknown_palettes = [p for p in scheme.palettes if p not in known_palettes]
             if unknown_palettes:
-                raise ValueError(f"{scheme.name} scheme references unknown palette(s): {', '.join(unknown_palettes)}")
+                msg = f"{scheme.name} scheme references unknown palette(s): {', '.join(unknown_palettes)}"
+                raise ValueError(msg)
         return v
 
 
@@ -108,7 +108,8 @@ class SublimeColorScheme(BaseModel):
                     var_refs = re.findall(var_pattern, value)
                     for var in var_refs:
                         if var not in self.variables:
-                            raise ValueError(f"{error_prefix}'{key}' references unknown variable '{var}'")
+                            msg = f"{error_prefix}'{key}' references unknown variable '{var}'"
+                            raise ValueError(msg)
         return self
 
 
@@ -133,7 +134,7 @@ class SublimeColorSchemeTemplate(BaseModel):
     rules: list[dict[NeStr, NeStr]] = []
 
 
-def build(validate_only: bool = False) -> None:
+def build(*, validate_only: bool = False) -> None:
     """Build color schemes.
 
     :param validate_only: Whether to validate color schemes without writing them to disk.
@@ -141,17 +142,14 @@ def build(validate_only: bool = False) -> None:
     config = Config.model_validate_json(CONFIG_FILE.read_text(encoding="utf8"))
     template = SublimeColorSchemeTemplate.model_validate_json(TEMPLATE_FILE.read_text(encoding="utf8"))
 
-    schemes = []
-
-    for scheme in config.schemes:
-        schemes.append(construct_color_scheme(scheme, template, config.palettes))
+    schemes = [construct_color_scheme(scheme, template, config.palettes) for scheme in config.schemes]
 
     if validate_only:
-        print(f"Validated {len(schemes)} color scheme(s)")
+        print(f"Validated {len(schemes)} color scheme(s)")  # noqa: T201
     else:
         for scheme in schemes:
             save_color_scheme(scheme)
-        print(f"Created {len(schemes)} color scheme(s)")
+        print(f"Created {len(schemes)} color scheme(s)")  # noqa: T201
 
 
 def config_schema() -> None:
@@ -161,7 +159,8 @@ def config_schema() -> None:
     try:
         CONFIG_SCHEMA_FILE.write_text(schema, encoding="utf8")
     except OSError as exc:
-        raise OSError(f"Failed to write configuration JSON schema {CONFIG_SCHEMA_FILE.name}") from exc
+        msg = f"Failed to write configuration JSON schema {CONFIG_SCHEMA_FILE.name}"
+        raise OSError(msg) from exc
 
 
 def construct_color_scheme(
@@ -198,7 +197,8 @@ def save_color_scheme(scheme: SublimeColorScheme) -> None:
     try:
         file.write_text(scheme.model_dump_json(indent=2), encoding="utf8")
     except OSError as exc:
-        raise OSError(f"Failed to write color scheme file: {file.name}") from exc
+        msg = f"Failed to write color scheme file: {file.name}"
+        raise OSError(msg) from exc
 
 
 def validate() -> None:

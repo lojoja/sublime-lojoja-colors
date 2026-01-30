@@ -6,6 +6,7 @@
 .coverage
 .DS_Store
 .pytest_cache/
+.ruff_cache/
 .retry
 .venv/
 __pycache__/

@@ -1,13 +1,10 @@
-# pylint: disable=missing-module-docstring,missing-function-docstring
-
-from contextlib import nullcontext as does_not_raise
 import json
+from contextlib import nullcontext as does_not_raise
 from pathlib import Path
 
-from pydantic import ValidationError
 import pytest
+from pydantic import ValidationError
 from pytest_mock import MockerFixture
-
 
 from sublime_lojoja_colors import (
     Config,
@@ -15,16 +12,16 @@ from sublime_lojoja_colors import (
     Scheme,
     SublimeColorScheme,
     SublimeColorSchemeTemplate,
+    build,
     config_schema,
     construct_color_scheme,
     save_color_scheme,
-    build,
     validate,
 )
 
 
 @pytest.mark.parametrize("palette_name", ["", " ", "x"])
-def test_config_palette_name(palette_name: str):
+def test_config_palette_name(palette_name: str) -> None:
     context = does_not_raise() if palette_name.strip() else pytest.raises(ValidationError)
     with context:
         Config(palettes={palette_name: Palette(globals={}, variables={})}, schemes=[])
@@ -32,7 +29,7 @@ def test_config_palette_name(palette_name: str):
 
 @pytest.mark.parametrize("ref_name", ["x", "y"])
 @pytest.mark.parametrize("palette_name", "x")
-def test_config_scheme_palette_reference_validation(palette_name: str, ref_name: str):
+def test_config_scheme_palette_reference_validation(palette_name: str, ref_name: str) -> None:
     context = does_not_raise() if ref_name == palette_name else pytest.raises(ValidationError)
     with context:
         Config(
@@ -44,7 +41,7 @@ def test_config_scheme_palette_reference_validation(palette_name: str, ref_name:
 @pytest.mark.parametrize("value", ["", " ", "test"])
 @pytest.mark.parametrize("target", ["key", "value"])
 @pytest.mark.parametrize("attr", ["globals", "variables"])
-def test_palette_globals_variables(attr: str, target: str, value: str):
+def test_palette_globals_variables(attr: str, target: str, value: str) -> None:
     context = does_not_raise() if value.strip() else pytest.raises(ValidationError)
     data = {value if target == "key" else "x": value if target == "value" else "x"}
     with context:
@@ -53,7 +50,7 @@ def test_palette_globals_variables(attr: str, target: str, value: str):
 
 @pytest.mark.parametrize("value", ["", " ", "x"])
 @pytest.mark.parametrize("attr", ["name", "author"])
-def test_scheme_name_author(attr: str, value: str):
+def test_scheme_name_author(attr: str, value: str) -> None:
     context = does_not_raise() if value.strip() else pytest.raises(ValidationError)
     with context:
         Scheme(name=value if attr == "name" else "x", author=value if attr == "author" else "x", palettes=["x"])
@@ -61,7 +58,7 @@ def test_scheme_name_author(attr: str, value: str):
 
 @pytest.mark.parametrize("value", ["", " ", "x"])
 @pytest.mark.parametrize("count", [0, 1])
-def test_scheme_palettes(count: int, value: str):
+def test_scheme_palettes(count: int, value: str) -> None:
     context = does_not_raise() if count > 0 and value.strip() else pytest.raises(ValidationError)
     with context:
         Scheme(name="x", author="x", palettes=[value * count])
@@ -69,7 +66,7 @@ def test_scheme_palettes(count: int, value: str):
 
 @pytest.mark.parametrize("value", ["", " ", "x"])
 @pytest.mark.parametrize("attr", ["name", "author"])
-def test_sublime_color_scheme_name_author(attr: str, value: str):
+def test_sublime_color_scheme_name_author(attr: str, value: str) -> None:
     context = does_not_raise() if value.strip() else pytest.raises(ValidationError)
     with context:
         SublimeColorScheme(
@@ -84,7 +81,7 @@ def test_sublime_color_scheme_name_author(attr: str, value: str):
 @pytest.mark.parametrize("value", ["", " ", "test"])
 @pytest.mark.parametrize("target", ["key", "value"])
 @pytest.mark.parametrize("attr", ["globals", "variables"])
-def test_sublime_color_scheme_globals_variables(attr: str, target: str, value: str):
+def test_sublime_color_scheme_globals_variables(attr: str, target: str, value: str) -> None:
     context = does_not_raise() if value.strip() else pytest.raises(ValidationError)
     data = {value if target == "key" else "x": value if target == "value" else "x"}
     with context:
@@ -100,7 +97,7 @@ def test_sublime_color_scheme_globals_variables(attr: str, target: str, value: s
 @pytest.mark.parametrize("value", ["", " ", "test"])
 @pytest.mark.parametrize("target", ["key", "value"])
 @pytest.mark.parametrize("count", [0, 1])
-def test_sublime_color_scheme_rules(count: int, target: str, value: str):
+def test_sublime_color_scheme_rules(count: int, target: str, value: str) -> None:
     context = does_not_raise() if count > 0 and value.strip() else pytest.raises(ValidationError)
     data = {value if target == "key" else "x": value if target == "value" else "x"}
     with context:
@@ -110,7 +107,7 @@ def test_sublime_color_scheme_rules(count: int, target: str, value: str):
 @pytest.mark.parametrize("var_ref_name", ["varname", "x"])
 @pytest.mark.parametrize("var_name", "varname")
 @pytest.mark.parametrize("attr", ["variables", "globals", "rules"])
-def test_sublime_color_scheme_validate_variable_references(attr: str, var_name: str, var_ref_name: str):
+def test_sublime_color_scheme_validate_variable_references(attr: str, var_name: str, var_ref_name: str) -> None:
     context = does_not_raise() if var_ref_name == var_name else pytest.raises(ValidationError)
     data_value = f"var({var_name}) var({var_ref_name})"
     with context:
@@ -125,15 +122,15 @@ def test_sublime_color_scheme_validate_variable_references(attr: str, var_name: 
 
 @pytest.mark.parametrize("value", ["", " ", "x"])
 @pytest.mark.parametrize("attr", ["name", "author"])
-def test_sublime_color_scheme_template_name_author(attr: str, value: str):
-    model = SublimeColorSchemeTemplate(**{attr: value})  # type: ignore
+def test_sublime_color_scheme_template_name_author(attr: str, value: str) -> None:
+    model = SublimeColorSchemeTemplate(**{attr: value})
     assert getattr(model, attr) == value
 
 
 @pytest.mark.parametrize("value", ["", " ", "test"])
 @pytest.mark.parametrize("target", ["key", "value"])
 @pytest.mark.parametrize("attr", ["globals", "variables"])
-def test_sublime_color_scheme_template_globals_variables(attr: str, target: str, value: str):
+def test_sublime_color_scheme_template_globals_variables(attr: str, target: str, value: str) -> None:
     context = does_not_raise() if value.strip() else pytest.raises(ValidationError)
     data = {value if target == "key" else "x": value if target == "value" else "x"}
     with context:
@@ -149,7 +146,7 @@ def test_sublime_color_scheme_template_globals_variables(attr: str, target: str,
 @pytest.mark.parametrize("value", ["", " ", "test"])
 @pytest.mark.parametrize("target", ["key", "value"])
 @pytest.mark.parametrize("count", [0, 1])
-def test_sublime_color_scheme_template_rules(count: int, target: str, value: str):
+def test_sublime_color_scheme_template_rules(count: int, target: str, value: str) -> None:
     context = does_not_raise() if count == 0 or value.strip() else pytest.raises(ValidationError)
     data = {value if target == "key" else "x": value if target == "value" else "x"}
     with context:
@@ -164,7 +161,7 @@ def test_build(
     tmp_path: Path,
     validate_only: bool,
     scheme_count: int,
-):
+) -> None:
     monkeypatch.setattr("sublime_lojoja_colors.PROJECT_DIR", tmp_path)
 
     config_data = {
@@ -192,7 +189,9 @@ def test_build(
 
 
 @pytest.mark.parametrize("should_fail", [True, False])
-def test_config_schema(monkeypatch: pytest.MonkeyPatch, mocker: MockerFixture, tmp_path: Path, should_fail: bool):
+def test_config_schema(
+    monkeypatch: pytest.MonkeyPatch, mocker: MockerFixture, tmp_path: Path, should_fail: bool
+) -> None:
     monkeypatch.setattr("sublime_lojoja_colors.PROJECT_DIR", tmp_path)
     context = does_not_raise()
 
@@ -200,7 +199,7 @@ def test_config_schema(monkeypatch: pytest.MonkeyPatch, mocker: MockerFixture, t
     monkeypatch.setattr("sublime_lojoja_colors.CONFIG_SCHEMA_FILE", file)
 
     if should_fail:
-        context = pytest.raises(OSError)
+        context = pytest.raises(OSError)  # noqa: PT011
         mocker.patch("sublime_lojoja_colors.Path.write_text", side_effect=OSError)
 
     with context:
@@ -209,7 +208,7 @@ def test_config_schema(monkeypatch: pytest.MonkeyPatch, mocker: MockerFixture, t
     assert file.exists() is not should_fail
 
 
-def test_construct_color_scheme():
+def test_construct_color_scheme() -> None:
     scheme = Scheme(name="x", author="x", palettes=["x"])
     template = SublimeColorSchemeTemplate(globals={"x": "ty"}, variables={"x": "tx"}, rules=[{"tx": "ty"}])
     palettes = {"x": Palette(globals={"x": "px", "y": "py"}, variables={"x": "px", "y": "py"})}
@@ -223,14 +222,16 @@ def test_construct_color_scheme():
 
 
 @pytest.mark.parametrize("should_fail", [True, False])
-def test_save_color_scheme(monkeypatch: pytest.MonkeyPatch, mocker: MockerFixture, tmp_path: Path, should_fail: bool):
+def test_save_color_scheme(
+    monkeypatch: pytest.MonkeyPatch, mocker: MockerFixture, tmp_path: Path, should_fail: bool
+) -> None:
     monkeypatch.setattr("sublime_lojoja_colors.PROJECT_DIR", tmp_path)
     context = does_not_raise()
     scheme = SublimeColorScheme(name="x", author="x", variables={"x": "y"}, globals={"x": "y"}, rules=[{"x": "y"}])
     file = tmp_path / f"{scheme.name}.sublime-color-scheme"
 
     if should_fail:
-        context = pytest.raises(OSError)
+        context = pytest.raises(OSError)  # noqa: PT011
         mocker.patch("sublime_lojoja_colors.Path.write_text", side_effect=OSError)
 
     with context:
@@ -239,7 +240,7 @@ def test_save_color_scheme(monkeypatch: pytest.MonkeyPatch, mocker: MockerFixtur
     assert file.exists() is not should_fail
 
 
-def test_validate(mocker: MockerFixture):
+def test_validate(mocker: MockerFixture) -> None:
     mock_build = mocker.patch("sublime_lojoja_colors.build")
     validate()
     mock_build.assert_called_once_with(validate_only=True)
