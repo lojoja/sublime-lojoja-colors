@@ -1,49 +1,44 @@
-[build-system]
-requires = ["poetry-core>=2.0.0"]
-build-backend = "poetry.core.masonry.api"
-
 [project]
 name = "sublime-lojoja-colors"
 version = "1.1.7a0"
 description = "A collection of color schemes for Sublime Text with extended scope, language, and package support."
-license = {text = "MIT"}
-readme = "README.md"
-authors = [
-  { name = "lojoja", email = "dev@lojoja.com" }
-]
+authors = [{ name = "lojoja", email = "dev@lojoja.com" }]
 requires-python = ">=3.11,<4"
-dependencies = [
-  "pydantic>=2.10.4,<3"
+readme = "README.md"
+license = { text = "MIT" }
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
-dynamic = ["classifiers"]
-
-[project.urls]
-homepage = "https://github.com/lojoja/sublime-lojoja-colors"
-repository = "https://github.com/lojoja/sublime-lojoja-colors"
-"Bug Tracker" = "https://github.com/lojoja/sublime-lojoja-colors/issues"
+dependencies = ["pydantic>=2.10.4,<3"]
 
 [project.scripts]
 build = "sublime_lojoja_colors:build"
 schema = "sublime_lojoja_colors:config_schema"
 validate = "sublime_lojoja_colors:validate"
 
-[tool.poetry]
-classifiers = [
-  "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.11",
-]
-packages = [
-    {include = "sublime_lojoja_colors.py", from = "src"}
-]
+[project.urls]
+homepage = "https://github.com/lojoja/sublime-lojoja-colors"
+repository = "https://github.com/lojoja/sublime-lojoja-colors"
+"Bug Tracker" = "https://github.com/lojoja/sublime-lojoja-colors/issues"
 
-[tool.poetry.group.dev.dependencies]
-black = "^26.1.0"
-pylint = "^4.0.4"
-pyright = "^1.1.408"
-pytest = "^9.0.2"
-pytest-cov = "^7.0.0"
-pytest-mock = "^3.15.1"
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "black>=26.1.0,<27",
+    "pylint>=4.0.4,<5",
+    "pyright>=1.1.408,<2",
+    "pytest>=9.0.2,<10",
+    "pytest-cov>=7.0.0,<8",
+    "pytest-mock>=3.15.1,<4",
+]
 
 [tool.black]
 include = '\.pyi?$'
@@ -51,19 +46,21 @@ line-length = 120
 skip-magic-trailing-comma = true
 target_version = ["py311"]
 
-[tool.coverage.run]
-source = ["src"]
-omit = ["tests/"]
-branch = true
-
 [tool.coverage.report]
-exclude_lines = [
-  "pragma: no cover",
-  "def __repr__",
-  "if log:",
-]
 fail_under = 100
 show_missing = true
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests"]
+branch = true
+
+[tool.hatch.build]
+sources = ["src"]
+
+[tool.hatch.build.targets.wheel]
+include = ["*.py", "data/"]
+exclude = ["tests/**"]
 
 [tool.pylint.main]
 ignore-paths = ["^(.*/)?.venv/.*$"]
@@ -81,9 +78,11 @@ pythonVersion = "3.11"
 venv = ".venv"
 venvPath = "."
 
-[tool.pytest.ini_options]
-addopts = "--strict-markers"
-pythonpath = ["src"]
+[tool.pytest]
 testpaths = ["tests"]
+strict_markers = true
 markers = []
-filterwarnings = ["ignore:::.*pytest_cov*"]
+filterwarnings = []
+
+[tool.uv]
+package = false
