@@ -14,7 +14,7 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 ]
-dependencies = ["pydantic>=2.10.4,<3"]
+dependencies = ["pydantic>=2.13.3,<3"]
 
 [project.scripts]
 build = "sublime_lojoja_colors:build"
