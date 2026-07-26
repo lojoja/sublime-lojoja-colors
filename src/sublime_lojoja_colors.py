@@ -10,7 +10,7 @@ from pathlib import Path
 import typing_extensions as te
 from pydantic import BaseModel, Field, StringConstraints, ValidationInfo, field_validator, model_validator
 
-NeStr: t.TypeAlias = te.Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
+type NeStr = te.Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 
 PROJECT_DIR = Path(__file__).parents[1]
 DATA_DIR = PROJECT_DIR / "src/data"

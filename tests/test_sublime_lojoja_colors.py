@@ -1,10 +1,9 @@
 import json
 from contextlib import nullcontext as does_not_raise
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
 from pydantic import ValidationError
-from pytest_mock import MockerFixture
 
 from sublime_lojoja_colors import (
     Config,
@@ -20,6 +19,11 @@ from sublime_lojoja_colors import (
     save_color_scheme,
     validate,
 )
+
+if TYPE_CHECKING:
+    from pathlib import Path
+
+    from pytest_mock import MockerFixture
 
 
 @pytest.mark.parametrize("palette_name", ["", " ", "x"])
